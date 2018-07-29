@@ -1,0 +1,46 @@
+.demo-note {
+    width: 250px;
+    height: 200px;
+    position:relative;
+    transition: 0.6s;
+    transform-style: preserve-3d;
+
+}
+.demo-note p {
+  font-size: 20px;
+  font-family: "Didot","Apple Chancery",sans-serif;
+  color: rgb(67, 36, 17);
+  line-height: 1.2;
+  text-align: center;
+  position: relative;
+}
+.demo-flip-container {
+  box-shadow: 6px 6px 4px 0 rgba(0, 0, 0, 0.3);
+  margin: 20px;
+  border-radius: 3%;
+  background:#fffdf0;
+  perspective: 1000px;
+  width: 250px;
+  height: 200px;
+  overflow: auto;
+  cursor: pointer;
+}
+
+.flipped {
+  transform: rotateY(180deg);
+}
+.demo-front, .demo-back {
+  backface-visibility: hidden;
+  position: absolute;
+  top:0;
+  left:0;
+  width: 250px;
+  height: 200px;
+}
+.demo-front {
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+.demo-back {
+  transform: rotateY(180deg);
+}

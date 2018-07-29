@@ -1,0 +1,120 @@
+/* body,
+html{
+    height: 100%;
+    overflow: hidden;
+} */
+body{
+	overflow: auto;
+}
+#login {
+    font-size: 20px;
+    text-align: right;
+    margin-left: 1%;
+    
+}
+.title{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: -50px;
+	height:200px;
+	width:80%;
+	align-self: center;
+	background:white;
+	margin-bottom: 20px;
+
+}
+.title-quote{
+	margin-top:-30px;
+	text-align: center;
+	font-family: "Didot","Apple Chancery",sans-serif;
+}
+.group-name{
+	text-align: center;
+	font-size: 72px;
+	letter-spacing: 5px;
+	padding-top:10px;
+}
+.instruction1{
+	font-size: 24px;
+	float:left;
+	margin-left:10%;
+	margin-right: 20px;
+	font-family: "Didot","Apple Chancery",sans-serif;
+
+}
+.instruction2{
+	font-size: 24px;
+	float:left;
+	margin-left:10%;
+	margin-right: 20px;
+	font-family: "Didot","Apple Chancery",sans-serif;
+}
+.instruction3{
+	font-size: 24px;
+	float:left;
+	margin-left:10%;
+	margin-right: 20px;
+	font-family: "Didot","Apple Chancery",sans-serif;
+}
+.instruction4{
+	font-size: 24px;
+	float:left;
+	margin-left:10%;
+	margin-right: 20px;
+	font-family: "Didot","Apple Chancery",sans-serif;
+}
+.mode1{
+	margin-left: 10%;
+	display: inline-block;
+	background: url('/diary_background.png');
+	background-size:cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	color:black;
+	margin-bottom: 20px;
+	width:80%;
+	height:200px;
+}
+.mode2{
+	margin-left: 10%;
+	display: inline-block;
+	background: url('/night_background.png');
+	background-size:cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	color:white;
+	margin-bottom: 20px;
+	width:80%;
+	height:200px;
+}
+.mode3{
+	margin-left: 10%;
+	display: inline-block;
+	background: url('/daylight_background.png');
+	background-size:cover;
+	background-repeat: no-repeat;
+	color:black;
+	margin-bottom:20px;
+	width:80%;
+	height:200px;
+}
+.mode4{
+	margin-left: 10%;
+	display: inline-block;
+	background: url('/diary_background.png');
+	background-size:cover;
+	background-position: bottom;
+	background-repeat: no-repeat;
+	color:black;
+	width:80%;
+	height:200px;
+	margin-bottom: 5%;
+}
+p{
+	text-align: left;
+	margin-left: 10px;
+	margin-top: 85px;
+	font-size: 15px;
+	font-family: "Didot","Apple Chancery",sans-serif;
+}

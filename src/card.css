@@ -1,0 +1,256 @@
+div.card_daylight {
+    height: 50px;
+    
+    border-radius: 10px;
+    /* border-radius: 1%; */
+    background-color: rgb(255, 252, 247);
+    margin: 3%;
+    position: relative;
+    cursor: -webkit-grab;
+    -webkit-box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, .2);
+    box-shadow: 0px 3px 5.52px 0.48px rgba(0, 0, 0, 0.28);
+
+}
+
+
+
+div.card_daylight:active {
+    cursor: -webkit-grabbing;
+}
+
+div.card_daylight p {
+    font-size: 14px;
+    font-family: "Didot","Apple Chancery",sans-serif; /*might need to check*/
+    color: rgb(67, 36, 17);
+    line-height: 1.2;
+    text-align: left;
+    padding: 8px;
+}
+
+
+div.card_daylight:hover > span {
+    opacity: 1;
+}
+
+div.card_daylight > span {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    opacity: 0;
+    transition: opacity .25s linear;
+}
+
+div.card_daylight button {
+    margin: 2px;
+}
+
+div.card_daylight > textarea {
+    height: 55%;
+    background: rgba(255, 255, 255, .5);
+}
+/*------------------------------------------------------*/
+div.card_night {
+    height: 50px;
+    width: 90% auto;
+    border-radius: 10px;
+    /* border-radius: 1%; */
+    background-color: rgb(244, 248, 249);
+    margin: 3px 0;
+    margin-left: 13px;
+    position: relative;
+    cursor: -webkit-grab;
+    -webkit-box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, .2);
+    box-shadow: 0px 3px 5.52px 0.48px rgba(0, 0, 0, 0.28);
+}
+
+
+div.card_night:active {
+    cursor: -webkit-grabbing;
+}
+
+div.card_night p {
+    font-size: 14px;
+    font-family: "Didot","Apple Chancery",sans-serif; /*might need to check*/
+    color: rgb(67, 36, 17);
+    line-height: 1.2;
+    text-align: left;
+    padding: 8px;
+}
+
+
+div.card_night:hover > span {
+    opacity: 1;
+}
+
+div.card_night > span {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    opacity: 0;
+    transition: opacity .25s linear;
+}
+
+div.card_night button {
+    margin: 2px;
+}
+
+div.card_night > textarea {
+    height: 55%;
+    background: rgba(255, 255, 255, .5);
+}
+/*------------------------------------------------------*/
+div.card_diary {
+    height: 50px;
+    width: 90%;
+    border-radius: 10px;
+    /* border-radius: 1%; */
+    background-color: rgb(255, 252, 247);
+    margin: 3px 0;
+    margin-left: 13px;
+    position: relative;
+    cursor: -webkit-grab;
+    -webkit-box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, .2);
+    box-shadow: 0px 3px 5.52px 0.48px rgba(0, 0, 0, 0.28);
+}
+
+
+div.card_diary:active {
+    cursor: -webkit-grabbing;
+}
+
+div.card_diary p {
+    font-size: 14px;
+    font-family: "PT Sans Narrow","Myriad Pro", sans-serif;
+    color: rgb(67, 36, 17);
+    line-height: 1.2;
+    text-align: left;
+    padding: 8px;
+}
+
+
+div.card_diary:hover > span {
+    opacity: 1;
+}
+
+div.card_diary > span {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    opacity: 0;
+    transition: opacity .25s linear;
+}
+
+div.card_diary button {
+    margin: 2px;
+}
+
+div.card_diary > textarea {
+    height: 55%;
+    background: rgba(255, 255, 255, .5);
+}
+/*------------------------------------------------------*/
+#add {
+  border-radius: 20%;
+  background-color: #7a82ab;
+
+}
+
+#edit {
+  background-color: #337ab7;
+}
+
+#save {
+  background-color: #5cb85c;
+}
+
+#remove {
+  border-radius: 20%;
+  background-color: #988b85;
+}
+
+/*
+
+div.card {
+  height: 50px;
+  width: 90%;
+  border-radius: 10px;
+  margin: 3px 0;
+  margin-left: 13px;
+  position: relative;
+  cursor: -webkit-grab;
+  -webkit-box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, .2);
+  box-shadow: 0px 3px 5.52px 0.48px rgba(0, 0, 0, 0.28);
+}
+
+div.card:active {
+    cursor: -webkit-grabbing;
+}
+div.card:hover > span {
+    opacity: 1;
+}
+
+div.card > span {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    opacity: 0;
+    transition: opacity .25s linear;
+}
+
+div.card button {
+    margin: 2px;
+}
+
+div.card > textarea {
+    height: 55%;
+    background: rgba(255, 255, 255, .5);
+}
+.card p{
+  font-size: 14px;
+  line-height: 1.2;
+  text-align: left;
+  padding: 8px;
+}
+
+div.card_daylight {
+    background-color: rgb(255, 252, 247);
+}
+div.card_daylight p {
+    font-family: "Didot","Apple Chancery",sans-serif;
+    color: rgb(67, 36, 17);
+}
+
+div.card_night {
+  background-color: rgb(244, 248, 249);
+}
+
+div.card_night p {
+    font-family: "Didot","Apple Chancery",sans-serif;
+    color: rgb(67, 36, 17);
+}
+div.card_diary {
+  background-color: rgb(255, 252, 247);
+}
+div.card_diary p {
+    font-family: "PT Sans Narrow","Myriad Pro", sans-serif;
+    color: rgb(67, 36, 17);
+}
+
+#add {
+  border-radius: 20%;
+  background-color: #7a82ab;
+
+}
+
+#edit {
+  background-color: #337ab7;
+}
+
+#save {
+  background-color: #5cb85c;
+}
+
+#remove {
+  border-radius: 20%;
+  background-color: #988b85;
+} */

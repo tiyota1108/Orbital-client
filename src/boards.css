@@ -1,0 +1,221 @@
+@import url(http://fonts.googleapis.com/css?family=Shadows+Into+Light);
+
+body,
+html,
+div.board,
+div#react-container {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+/* div.board {
+  text-align: center;
+  background:
+  linear-gradient(
+    rgba(0, 0, 0, 0.25)
+    rgba(0, 0, 0, 0.25)
+    ),
+    url('/daylight_backgroud.png') no-repeat center center fixed;
+
+} */
+
+div.board {
+  text-align: center; /* it doesnt have to be*/
+  position: fixed; /* i dont know what this do*/
+  top: 0;
+  left:0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  /* display: block; */
+    /* z-index: -3; */
+    background-size: cover;
+
+}
+div.board h1 {
+    font-size: 20px;
+
+    line-height: 1.2;
+    text-align: left;
+    padding-top: 5px;
+    padding-left: 50px;
+}
+
+div.Grid {
+  margin: 5%;/*to the edge of the viewport*/
+  display: flex;
+  flex-flow:row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.board_daylight {
+  background:url('/daylight_background.png') no-repeat center center fixed;
+}
+.board_daylight h1 {
+  font-family: "Apple Chancery","Didot",serif; /*might need to check*/
+  color: rgb(67, 36, 17);
+}
+/*------------------------------------------------------*/
+.board_night {
+  background:url('/night_background.png') no-repeat center center fixed;
+}
+
+.board_night h1 {
+    font-family: "Apple Chancery","Didot",serif; /*might need to check*/
+    color: #c9f0ff;
+}
+/*------------------------------------------------------*/
+
+.board_diary {
+  background:url('/diary_background.png') no-repeat center center fixed;
+}
+
+.board_diary h1 {
+    font-family: "Apple Chancery","Didot",serif; /*might need to check*/
+    color: rgb(67, 36, 17);
+}
+
+/*this need to be here to overwrite the text style form Board*/
+div.card {
+  height: 50px;
+  width: 90%;
+  border-radius: 10px;
+  margin: 3px 0;
+  margin-left: 13px;
+  position: relative;
+  cursor: -webkit-grab;
+  -webkit-box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, .2);
+  box-shadow: 0px 3px 5.52px 0.48px rgba(0, 0, 0, 0.28);
+  /* border-radius: 1%; */
+}
+
+div.card:active {
+    cursor: -webkit-grabbing;
+}
+div.card:hover > span {
+    opacity: 1;
+}
+
+div.card > span {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    opacity: 0;
+    transition: opacity .25s linear;
+}
+
+div.card button {
+    margin: 2px;
+}
+
+div.card > textarea {
+    height: 55%;
+    background: rgba(255, 255, 255, .5);
+}
+.card_daylight p{
+  font-size: 14px;
+  line-height: 1.2;
+  text-align: left;
+  padding: 8px;
+}
+/*------------------------------------------------------*/
+
+div.card_daylight {
+    background-color: rgb(255, 252, 247);
+}
+div.card_daylight p {
+    font-family: "Didot","Apple Chancery",sans-serif; /*might need to check*/
+    color: rgb(67, 36, 17);
+}
+
+/*------------------------------------------------------*/
+div.card_night {
+  background-color: rgb(244, 248, 249);
+}
+
+div.card_night p {
+    font-family: "Didot","Apple Chancery",sans-serif; /*might need to check*/
+    color: rgb(67, 36, 17);
+}
+/*------------------------------------------------------*/
+div.card_diary {
+  background-color: rgb(255, 252, 247);
+}
+div.card_diary p {
+    font-family: "PT Sans Narrow","Myriad Pro", sans-serif;
+    color: rgb(67, 36, 17);
+}
+
+/*------------------------------------------------------*/
+/* .card p{
+  font-size: 14px;
+  line-height: 1.2;
+  text-align: left;
+  padding: 8px;
+}
+div.card_daylight p {
+    color: rgb(67, 36, 17);
+}
+
+div.card_night p {
+    color: rgb(67, 36, 17);
+}
+
+div.card_diary p {
+    font-family: "PT Sans Narrow","Myriad Pro", sans-serif;
+    color: rgb(67, 36, 17);
+} */
+
+/*------------------------------------------------------*/
+#add {
+  border-radius: 20%;
+  background-color: #7a82ab;
+
+}
+
+#edit {
+  background-color: #337ab7;
+}
+
+#save {
+  background-color: #5cb85c;
+}
+
+#remove {
+  border-radius: 20%;
+  background-color: #988b85;
+}
+
+#nav {
+  color: #6b5e62;
+  cursor:pointer;
+  font-size: 30px;
+  border-radius: 2px;
+  border: 0px;
+  background-color: inherit;
+}
+#nav:hover, #nav:focus {
+  color: #111;
+}
+/*
+opacity: 0.5;
+
+height: 50px;
+width: 90%;
+border-radius: 10px;
+ border-radius: 1%;
+background-color: rgb(255, 252, 247);
+margin: 3px 0;
+margin-left: 13px;
+position: relative;
+cursor: -webkit-grab;
+-webkit-box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, 0.2);
+box-shadow: 0px 3px 5.52px 0.48px rgba(0, 0, 0, 0.28);
+*/

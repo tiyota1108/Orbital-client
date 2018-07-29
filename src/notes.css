@@ -1,0 +1,175 @@
+.flip-container {
+  margin: 20px;
+  border-radius: 3%;
+  perspective: 1000px;
+  width: 250px;
+  height: 200px;
+  overflow: auto;
+  cursor: pointer;
+  box-shadow: 6px 6px 4px 0 rgba(0, 0, 0, 0.3);
+  resize: vertical;
+
+}
+.note {
+    width: 100%;
+    height: 100%;
+    position:relative;
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    resize: vertical;
+    /*the filter doent seem to conflict with the flip*/
+    /* filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eab92d', endColorstr='#c79810', GradientType=1); */
+}
+
+.back-container {
+  padding: 50px 0px;
+  text-align: center;
+}
+
+.back-container p {
+  padding-bottom: 40px;
+}
+
+.flipped {
+  transform: rotateY(180deg);
+}
+
+.front, .back {
+  backface-visibility: hidden;
+  position: absolute;
+  top:0;
+  left:0;
+  width: 250px;
+  height: 200px;
+}
+.front {
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+.back {
+  transform: rotateY(180deg);
+}
+
+.note p {
+  margin:5% auto;
+  font-size: 20px;
+  line-height: 1.2;
+  text-align: center;
+  position: relative;
+}
+
+
+div.note button {
+  position:relative;
+  color: #fff;
+  font-size: 14px;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.55);
+}
+/* .demo8-item {
+  position: absolute;
+  width: 320px;
+  height: 45px;
+  overflow: visible;
+  pointer-events: auto;
+  transform-origin: 50% 50% 0px;
+  border-radius: 4px;
+  color: rgb(153, 153, 153);
+  line-height: 48px;
+  padding-left: 32px;
+  font-size: 24px;
+  font-weight: 400;
+  background-color: rgb(255, 255, 255);
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+ .demo8-outer {
+    background-color: pink;
+    color: #FFF;
+    position: absolute;
+    width: 250px;
+    height: 200px;
+    font: 28px/1em "Helvetica";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: -webkit-flex;
+    -webkit-justify-content: center;
+    -webkit-align-items: center;
+  } */
+/*------------------------------------------------------*/
+
+.note_daylight {
+
+  background:#fffdf0;
+}
+
+.note_daylight p{
+  font-family: "Didot","Apple Chancery",sans-serif;
+  color: rgb(67, 36, 17);
+}
+
+/*------------------------------------------------------*/
+.note_night {
+    background:rgb(234, 234, 234);
+}
+
+.note_night p {
+  font-family: "Didot", "Apple Chancery", sans-serif; /*might need to check*/
+  color: rgb(67, 36, 17);
+}
+/*------------------------------------------------------*/
+.note_diary {
+    background:rgb(254, 252, 239);
+}
+
+
+.note_diary p {
+  font-family: "PT Sans Narrow","Myriad Pro", sans-serif; /*might need to check*/
+  color: rgb(67, 36, 17);
+}
+/*------------------------------------------------------*/
+
+#add {
+  border-radius: 20%;
+  background-color: #7a82ab;
+
+}
+
+#edit {
+  background-color: #337ab7;
+}
+
+#save {
+  background-color: #5cb85c;
+}
+
+#remove {
+  border-radius: 20%;
+  background-color: #988b85;
+}
+
+/*if you do not specify, height will auto adjust*/
+/* .note_daylight {
+  box-shadow: 6px 6px 4px 0 rgba(0, 0, 0, 0.3);
+
+    width: 250px;
+    margin: 20px;
+    height: 200px;
+    border-radius: 3%;
+    background:#fffdf0;
+    position:relative;
+    transition: 0.6s;
+    cursor: pointer;
+    transform-style: preserve-3d;
+  } */
+    /* float:left; */
+
+    /*added in cursor for note*/
+    /* overflow: inherit; */
+    /*background: -moz-radial-gradient(center, ellipse cover, #eab92d 57%, #c79810 99%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(57%, #eab92d), color-stop(99%, #c79810));
+    background: -webkit-radial-gradient(center, ellipse cover, #eab92d 57%, #c79810 99%);
+    background: -o-radial-gradient(center, ellipse cover, #eab92d 57%, #c79810 99%);
+    background: -ms-radial-gradient(center, ellipse cover, #eab92d 57%, #c79810 99%);
+    background: radial-gradient(ellipse at center, #eab92d 57%, #c79810 99%);*/
+    /* filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eab92d', endColorstr='#c79810', GradientType=1); */

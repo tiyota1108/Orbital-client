@@ -1,0 +1,32 @@
+html,
+body {
+
+}
+pre {
+
+    white-space: pre-wrap;
+    font-family: "Courier";
+
+}
+.lostMessage {
+  position: fixed; /* i dont know what this do*/
+  top: 0;
+  left:0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  /* display: block; */
+    /* z-index: -3; */
+    background-size: cover;
+  text-align: center;
+  font-family: "Didot";
+  color: #725d68;
+  /* background-color: #c09891; */
+
+  background-color: #a8b4a5;
+  margin-top: 0;
+  /* background-color: #fff; */
+
+}
