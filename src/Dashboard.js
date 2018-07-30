@@ -24,7 +24,7 @@ class Dashboard extends Component{
   componentWillMount() {
     var self = this;
     this.userId = this.props.match.params.id;
-    fetch(`http://localhost:3000/board/${this.userId}`, { //added in the second argument to specify token
+    fetch(`https://rocky-oasis-21711.herokuapp.com/board/${this.userId}`, { //added in the second argument to specify token
       method: 'GET',
       headers: {
         'Accept': 'application/json',

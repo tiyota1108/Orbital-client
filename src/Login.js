@@ -24,7 +24,7 @@ class Login extends Component {
     e.preventDefault();
 
     const { username, password } = this.state;
-    fetch(`/auth/login`, {
+    fetch(`https://rocky-oasis-21711.herokuapp.com/auth/login`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
