@@ -62,7 +62,7 @@ class Login extends Component {
   render() {
     const { username, password, message } = this.state;
     return (
-      <div className="container">
+      <div className="container_login">
         <form className="form-signin" onSubmit={this.onSubmit}>
           {message !== '' &&
             <div className="alert alert-warning alert-dismissible" role="alert">

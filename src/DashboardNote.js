@@ -89,7 +89,7 @@ class DashboardNote extends Component {
     alt = {`/${this.props.mode}_background`}
     className = "note-image" />
       </Link>
-      <div className = "container">
+      <div className = "container_dash">
   			<h3 onClick={this.edit}>{this.props.boardTitle}</h3>
         <span>
             <button onClick={this.edit} id="edit"><FaPencil /></button>
