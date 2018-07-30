@@ -33,7 +33,7 @@ class Dashboard extends Component{
       }
     })
         .then(response => console.log(response))
-        .then(response => response.json())
+        .then(response => JSON.PARSE(response))
         .then(response => {
           console.log(response);
           if(response.message === unanthMessage) {
