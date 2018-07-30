@@ -32,6 +32,7 @@ class Dashboard extends Component{
         'Authorization' : `${localStorage.getItem('jwtToken')}`
       }
     })
+        .then(response => console.log(response))
         .then(response => response.json())
         .then(response => {
           console.log(response);
