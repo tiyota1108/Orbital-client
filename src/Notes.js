@@ -99,7 +99,7 @@ class Note extends Component {
 
 	add(text) {
 		var self = this;
-		fetch(`http://localhost:3000/card/${this.props.index}`, {
+		fetch(`https://rocky-oasis-21711.herokuapp.com/card/${this.props.index}`, {
 			method: 'POST',
 			headers: {
 				'Accept': 'application/json',
@@ -135,7 +135,7 @@ class Note extends Component {
 
 	update(newText, i) {
 		var self = this;
-		fetch(`http://localhost:3000/card/${this.props.index}/${i}`, {
+		fetch(`https://rocky-oasis-21711.herokuapp.com/card/${this.props.index}/${i}`, {
 			method: 'PUT',
 			headers: {
 				'Accept': 'application/json',
@@ -171,7 +171,7 @@ class Note extends Component {
 	removeCard(id) {
 		console.log('removing item at', id)
 		var self = this;
-		fetch(`http://localhost:3000/card/${this.props.index}/${id}`, {
+		fetch(`https://rocky-oasis-21711.herokuapp.com/card/${this.props.index}/${id}`, {
 			method: 'DELETE',
 			headers: {
 				'Accept': 'application/json',
