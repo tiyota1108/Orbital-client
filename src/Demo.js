@@ -7,12 +7,20 @@ class Demo extends Component {
     this.state = {
       note : {
         animation: '',
-        note: "ito pato milo mila taka tiki pouletlil ksne sjen djks dhfoe dheoslkhfdtujjosoa;ehrhf xijao;fwjohi oj tikCépa lajoi démitoka lana moulé macaréna Kika la po maka bomb"
+        note: this.props.text,
       }
     }
     this.flipNote = this.flipNote.bind(this);
+    this.updateTitle = this.updateTitle.bind(this)
+
   }
 
+  updateTitle(newNoteTitle, i) {
+    var self = this;
+  self.setState(prevState => ({
+    note: {...prevState.note,note: newNoteTitle}
+  }));
+  }
   flipNote(side) {
     this.setState(prevState => ({
       note: {...prevState.note,animation: side}
@@ -21,8 +29,13 @@ class Demo extends Component {
   render() {
     return (
       <div>
-      <NoteDemo animation = {this.state.note.animation}
-                onFlip = {this.flipNote}>
+      <NoteDemo
+      mode = {this.props.mode}
+      animation = {this.state.note.animation}
+      onChange={this.updateTitle}
+      onFlip = {this.flipNote}
+      style = {{textAlign:'center'}}>
+
       {this.state.note.note}
       </NoteDemo>
       </div>
