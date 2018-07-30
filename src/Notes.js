@@ -5,8 +5,6 @@ import FaPencil from 'react-icons/lib/fa/pencil'
 import FaTrash from 'react-icons/lib/fa/trash'
 import FaFloppyO from 'react-icons/lib/fa/floppy-o'
 import './notes.css'
-import {Motion, spring} from 'react-motion';
-
 //in this version i moved the set state for updating and deleting
 //card out of the callback of saving to backend. to speed up
 //front end render. the version where the setstate is inside
@@ -14,30 +12,10 @@ import {Motion, spring} from 'react-motion';
 
 const unanthMessage = "Unauthorized user,please login.";
 
-function reinsert(arr, from, to) {
-  const _arr = arr.slice(0);
-  const val = _arr[from];
-  _arr.splice(from, 1);
-  _arr.splice(to, 0, val);
-  return _arr;
-}
-
-function clamp(n, min, max) {
-  return Math.max(Math.min(n, max), min);
-}
-
-const springConfig = {stiffness: 300, damping: 50};
-const itemsCount = 10;
-
 class Note extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			topDeltaY: 0,
-      mouseY: 0,
-      isPressed: false,
-      originalPosOfLastPressed: 0,
-			itemsCount: null,
 			cards: [],
 			editingTitle:false,
 			effect:" animated slideInUp"
@@ -60,16 +38,13 @@ class Note extends Component {
 			cards: this.props.cards.map(card => (
 				{id: card._id,
 				card: card.cardContent}
-			)),
-			itemsCount : this.props.cards.length
+			)).reduce((obj, note) => {//reduce the array of note objects to one big object with the _ids as keys
+        obj[note.id] = note;
+        return obj;
+      },{})
 		});
 	}
-	componentDidMount() {
-		window.addEventListener('touchmove', this.handleTouchMove);
-		window.addEventListener('touchend', this.handleMouseUp);
-		window.addEventListener('mousemove', this.handleMouseMove);
-		window.addEventListener('mouseup', this.handleMouseUp);
-	};
+
 	//------------------------------------------------------------------------
 
 	shouldComponentUpdate(nextProps, nextState) {
@@ -99,7 +74,7 @@ class Note extends Component {
 
 	add(text) {
 		var self = this;
-		fetch(`https://rocky-oasis-21711.herokuapp.com/card/${this.props.index}`, {
+		fetch(`https://little-planet-1564-api.herokuapp.com/card/${this.props.index}`, {
 			method: 'POST',
 			headers: {
 				'Accept': 'application/json',
@@ -116,15 +91,15 @@ class Note extends Component {
 			if(response.message === unanthMessage) {
 				this.props.history.push("/login");
 			} else {
-				self.setState(prevState =>({
-					cards:[
-							...prevState.cards,
-							{
-								id:response._id,
-								card:text
-							}
-					]
-				}));
+			self.setState(prevState =>({
+				cards:{
+						...prevState.cards,
+						[response._id] : {
+							id:response._id,
+							card:text
+						}
+				}
+			}));
 		}
 		})
 		.catch( (error) => {
@@ -135,7 +110,7 @@ class Note extends Component {
 
 	update(newText, i) {
 		var self = this;
-		fetch(`https://rocky-oasis-21711.herokuapp.com/card/${this.props.index}/${i}`, {
+		fetch(`https://little-planet-1564-api.herokuapp.com/card/${this.props.index}/${i}`, {
 			method: 'PUT',
 			headers: {
 				'Accept': 'application/json',
@@ -156,11 +131,10 @@ class Note extends Component {
 		.catch( (error) => {
 		console.log(error);
 	})
-	self.setState(prevState => ({
-		cards: prevState.cards.map(
-			card => (card.id !== i) ? card : {...card,card: newText}
-			)
-	}));
+	self.setState(prevState => {
+		prevState.cards[i].card = newText;//here cannot use notes.i must use notes[i], thank you 1101S
+		return prevState;
+	});
 	}
 
 
@@ -171,7 +145,7 @@ class Note extends Component {
 	removeCard(id) {
 		console.log('removing item at', id)
 		var self = this;
-		fetch(`https://rocky-oasis-21711.herokuapp.com/card/${this.props.index}/${id}`, {
+		fetch(`https://little-planet-1564-api.herokuapp.com/card/${this.props.index}/${id}`, {
 			method: 'DELETE',
 			headers: {
 				'Accept': 'application/json',
@@ -189,116 +163,25 @@ class Note extends Component {
 		.catch( (error) => {
 		console.log(error);
 	})
-	self.setState(prevState => ({
-		cards: prevState.cards.filter(card => card.id !== id)
-	}));
+	self.setState(prevState => {
+		delete prevState.cards[id];
+		return prevState;
+	});
 	}
 
 
-	handleTouchStart = (key, pressLocation, e) => {
-		this.handleMouseDown(key, pressLocation, e.touches[0]);
-	};
-
-	handleTouchMove = (e) => {
-		e.preventDefault();
-		this.handleMouseMove(e.touches[0]);
-	};
-
-	handleMouseDown = (pos, pressY, {pageY}) => {
-		this.setState({
-			topDeltaY: pageY - pressY,
-			mouseY: pressY,
-			isPressed: true,
-			originalPosOfLastPressed: pos,
-		});
-	};
-
-	handleMouseMove = ({pageY}) => {
-		const {isPressed, topDeltaY, cards, originalPosOfLastPressed, itemsCount} = this.state;
-//+ cards.indexOf(originalPosOfLastPressed) * 35
-		if (isPressed) {
-			console.log("pageY is " + pageY);
-			console.log("topDeltaY " + topDeltaY);
-			const mouseY = pageY - topDeltaY;
-			console.log("mouseY is " + mouseY);
-			const currentRow = clamp(Math.round(mouseY / 70)  , 0, itemsCount - 1);
-			console.log("currentRow is " + currentRow);
-			let newOrder = cards;
-
-			if (currentRow !== cards.indexOf(originalPosOfLastPressed)){
-				newOrder = reinsert(cards, cards.indexOf(originalPosOfLastPressed), currentRow);
-			}
-
-			this.setState({mouseY: mouseY, cards: newOrder});
-		}
-	};
-
-	handleMouseUp = () => {
-    this.setState({isPressed: false, topDeltaY: 0});
-  };
-
-	eachCard(card, i) {
-		const {mouseY, isPressed, originalPosOfLastPressed, cards} = this.state;
-
-		const style = originalPosOfLastPressed === card && isPressed
-			? {
-					scale: spring(1.1, springConfig),
-					shadow: spring(16, springConfig),
-					y: mouseY,
-				}
-			: {
-					scale: spring(1, springConfig),
-					shadow: spring(1, springConfig),
-					y: spring(cards.indexOf(card) * 2, springConfig),
-				};
+	eachCard(cardId, i) {
 		return (
-				<Motion style={style} key={i}>
-					{({scale, shadow, y}) =>
-						<div
-							onMouseDown={this.handleMouseDown.bind(null, card, y)}
-							onTouchStart={this.handleTouchStart.bind(null, card, y)}
-							className="demo8-item"
-							style={{
-
-								transform: `translate3d(0, ${y}px, 0) scale(${scale})`,
-								WebkitTransform: `translate3d(0, ${y}px, 0) scale(${scale})`,
-								zIndex: card === originalPosOfLastPressed ? 0 : cards.indexOf(card),
-							}}>
-
-							<Card key={card.id}
-								  index={card.id}
-									mode = {this.props.mode}
-									onChange={this.update}
-								  onRemove={this.removeCard}>
-									{card.card}
-									</Card>
-						</div>
-					}
-				</Motion>
+			<Card key={cardId}
+				  index={cardId}
+					mode = {this.props.mode}
+					onChange={this.update}
+				  onRemove={this.removeCard}>
+				  {this.state.cards[cardId].card}
+		    </Card>
 		)
 	}
-	// <Motion style={style} key={card}>
-	// 	{({scale, shadow, y}) =>
-	// 		<div
-	// 			onMouseDown={this.handleMouseDown.bind(null, card, y)}
-	// 			onTouchStart={this.handleTouchStart.bind(null, card, y)}
-	// 			className="demo8-item"
-	// 			style={{
-	// 				boxShadow: `rgba(0, 0, 0, 0.2) 0px ${shadow}px ${2 * shadow}px 0px`,
-	// 				transform: `translate3d(0, ${y}px, 0) scale(${scale})`,
-	// 				WebkitTransform: `translate3d(0, ${y}px, 0) scale(${scale})`,
-	// 				zIndex: card === originalPosOfLastPressed ? 99 : 5,
-	// 			}}>
-	// 			<Card key={card.id}
-	// 					index={card.id}
-	// 					mode = {this.props.mode}
-	// 					onChange={this.update}
-	// 					onRemove={this.removeCard}>
-	// 					{card.card}
-	// 				</Card>
-	// 		</div>
-	// 	}
-	// </Motion>
+
 	renderForm(side) {
 		console.log('render Form')
 		return (
@@ -314,12 +197,11 @@ class Note extends Component {
 	renderDisplay() {
 		return (
 			<div>
-				<p onClick={this.editTitle}>{this.props.children}</p>
+				<p>{this.props.children}</p>
 				<button onClick={this.remove} id="remove"><FaTrash /></button>
 				<button onClick={this.editTitle} id="edit"><FaPencil /></button>
-				<div className="demo8-outer">
-				{this.state.cards.map(this.eachCard)}
-				</div>
+
+				{Object.keys(this.state.cards).map(this.eachCard)}
 				<span>
 				<button onClick={this.add.bind(null,"New Card")}
 				    id="add">
@@ -332,7 +214,7 @@ class Note extends Component {
 	renderDisplay_back() {
 		return (
 			<div>
-				<p onClick={this.editTitle}>{this.props.children}</p>
+				<p>{this.props.children}</p>
 				<button onClick={this.remove} id="remove"><FaTrash /></button>
 				<button onClick={this.editTitle} id="edit"><FaPencil /></button>
 			</div>
@@ -341,6 +223,7 @@ class Note extends Component {
 
 
 	render() {
+		console.log("this state is" + this.props.animation );
 		return (
 			<div className = {`flip-container note_${this.props.mode}${this.state.effect}`}>
 			<div className = {`note_${this.props.mode}`}>
