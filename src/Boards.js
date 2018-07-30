@@ -42,7 +42,7 @@ class Board extends Component {
 		}
 		setTimeout(() => this.setState({loading: false}), 1000);//load
 
-		fetch(`http://localhost:3000/note/${this.boardId}`, { //added in the second argument to specify token
+		fetch(`https://little-planet-1564-api.herokuapp.com/note/${this.boardId}`, { //added in the second argument to specify token
 			method: 'GET',
 			headers: {
 				'Accept': 'application/json',
@@ -80,7 +80,7 @@ class Board extends Component {
 
 	add(note) {
 		var self = this;
-		fetch(`http://localhost:3000/note/${this.boardId}`, {
+		fetch(`https://little-planet-1564-api.herokuapp.com/note/${this.boardId}`, {
 			method: 'POST',
 			headers: {
 				'Accept': 'application/json',
@@ -119,7 +119,7 @@ class Board extends Component {
 
 	updateTitle(newNoteTitle, i) {
 		var self = this;
-		fetch(`http://localhost:3000/note/${i}`, {
+		fetch(`https://little-planet-1564-api.herokuapp.com/note/${i}`, {
 			method: 'PUT',
 			headers: {
 				'Accept': 'application/json',
@@ -155,7 +155,7 @@ class Board extends Component {
 	remove(id) {
 		console.log('removing item at', id)
 		var self = this;
-		fetch(`http://localhost:3000/note/${id}`, {
+		fetch(`https://little-planet-1564-api.herokuapp.com/note/${id}`, {
 			method: 'DELETE',
 			headers: {
 				'Accept': 'application/json',
@@ -197,7 +197,7 @@ class Board extends Component {
 	/*--------for flipping-------------------------------------*/
 	flipNote(noteId, side) {
 		var self = this;
-		fetch(`http://localhost:3000/note/${noteId}`, {
+		fetch(`https://little-planet-1564-api.herokuapp.com/note/${noteId}`, {
 			method: 'PUT',
 			headers: {
 				'Accept': 'application/json',

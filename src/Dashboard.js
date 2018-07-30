@@ -24,7 +24,7 @@ class Dashboard extends Component{
   componentWillMount() {
     var self = this;
     this.userId = this.props.match.params.id;
-    fetch(`http://localhost:3000/board/${this.userId}`, { //added in the second argument to specify token
+    fetch(`https://little-planet-1564-api.herokuapp.com/board/${this.userId}`, { //added in the second argument to specify token
       method: 'GET',
       headers: {
         'Accept': 'application/json',
@@ -53,7 +53,7 @@ class Dashboard extends Component{
 
     add(mode) {//adapt the setState to add new key-value pair into the notes object
   		var self = this;
-  		fetch(`http://localhost:3000/board/${this.userId}`, {
+  		fetch(`https://little-planet-1564-api.herokuapp.com/board/${this.userId}`, {
   			method: 'POST',
   			headers: {
   				'Accept': 'application/json',
@@ -97,7 +97,7 @@ class Dashboard extends Component{
 
 		update(newText, boardId) {
 			var self = this;
-			fetch(`http://localhost:3000/board/${boardId}`, {
+			fetch(`https://little-planet-1564-api.herokuapp.com/board/${boardId}`, {
 				method: 'PUT',
 				headers: {
 					'Accept': 'application/json',
@@ -128,7 +128,7 @@ class Dashboard extends Component{
 
 		remove(id) {
 			var self = this;
-			fetch(`http://localhost:3000/board/${id}`, {
+			fetch(`https://little-planet-1564-api.herokuapp.com/board/${id}`, {
 				method: 'DELETE',
 				headers: {
 					'Accept': 'application/json',
@@ -222,88 +222,3 @@ class Dashboard extends Component{
 }
 
 export default Dashboard;
-/*<div>
-	<img src = {`/daylight_background.png`}
-	alt = {`/daylight_background`}
-	className = "note-image" />
-</div>
-*/
-
-/*
-<button onClick={this.add("daylight")}>daylight mode</button>
-<button onClick={this.add("dairy")}>dairy mode</button>
-<button onClick={this.add("night")}>night mode</button>
-*/
-
-
-
-// 	componentDidUpdate(){
-// 		var textArea
-// 		if (this.state.editing){
-// 			textArea = this._newText
-// 			textArea.focus()
-// 			textArea.select()
-// 		}
-// 	}
-//
-// 	shouldComponentUpdate(nextProps,nextState){
-// 		return (
-// 			this.props.children !== nextProps.children|| this.state !== nextState
-// 			)
-//
-// 	}
-//
-// 	edit(){
-// 		this.setState({
-// 			editing: true
-// 		})
-// 	}
-// 	remove(){
-// 		this.props.onRemove(this.props.index)
-// 	}
-//
-// 	save(e){
-// 		e.preventDefault()
-// 		this.props.onChange(this._newText.value,this.props.index)
-// 		this.setState({
-// 			editing:false
-// 		})
-// 	}
-//
-// 	_handleKeyPress = (e) => {
-//         if (e.key === 'Enter') {
-//         console.log('do validate');
-//         }
-//     }
-// 	renderForm(){
-// 		return (
-// 			<div className="card" style={this.style}>
-// 			    <form onSubmit={this.save}>
-// 			        <textarea ref={input => this._newText = input}
-// 			            defaultValue={this.props.children}/>
-// 			        <button id="save"><FaFloppyO/></button>
-//
-//
-// 			    </form>
-// 			</div>
-// 		)
-// 	}
-//
-// 	renderDisplay(){
-// 		return (
-// 			<div className="card" style={this.style}>
-// 			    <p>{this.props.children}</p>
-// 			    <span>
-// 			        <button onClick={this.edit} id="edit"><FaPencil /></button>
-// 			        <button onClick={this.remove} id="remove"><FaTrash /></button>
-// 			    </span>
-// 			 </div>
-// 			)
-// 	}
-// 	render(){
-// 		return this.state.editing ? this.renderForm():this.renderDisplay()
-//
-//
-// 	}
-// }
-// export default Card

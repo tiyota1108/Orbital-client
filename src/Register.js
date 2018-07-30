@@ -28,7 +28,7 @@ class Create extends Component {
     //   .then((result) => {
     //     this.props.history.push("/login")
     //   });
-      fetch(`/auth/register`, {
+      fetch("https://little-planet-1564-api.herokuapp.com/auth/register", {
   			method: 'POST',
   			headers: {
   				'Accept': 'application/json',
