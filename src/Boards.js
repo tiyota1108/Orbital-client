@@ -271,14 +271,14 @@ class Board extends Component {
 						id="add">
 					<FaPlus />
 				</button>
-				{localStorage.getItem('jwtToken') &&
-						<button className="btn btn-primary" onClick={this.logout}>Logout</button>
-					}
+
 					</div>
 				}
 			</div>
 		)
 	}
 }
-
+// {localStorage.getItem('jwtToken') &&
+// 		<button className="btn btn-primary" onClick={this.logout}>Logout</button>
+// 	}
 export default Board
