@@ -53,7 +53,7 @@ class Dashboard extends Component{
 
     add(mode) {//adapt the setState to add new key-value pair into the notes object
   		var self = this;
-  		fetch(`http://localhost:3000/board/${this.userId}`, {
+  		fetch(`https://rocky-oasis-21711.herokuapp.com/board/${this.userId}`, {
   			method: 'POST',
   			headers: {
   				'Accept': 'application/json',
@@ -97,7 +97,7 @@ class Dashboard extends Component{
 
 		update(newText, boardId) {
 			var self = this;
-			fetch(`http://localhost:3000/board/${boardId}`, {
+			fetch(`https://rocky-oasis-21711.herokuapp.com/board/${boardId}`, {
 				method: 'PUT',
 				headers: {
 					'Accept': 'application/json',
@@ -128,7 +128,7 @@ class Dashboard extends Component{
 
 		remove(id) {
 			var self = this;
-			fetch(`http://localhost:3000/board/${id}`, {
+			fetch(`https://rocky-oasis-21711.herokuapp.com/board/${id}`, {
 				method: 'DELETE',
 				headers: {
 					'Accept': 'application/json',
