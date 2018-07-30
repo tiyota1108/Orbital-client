@@ -1,6 +1,6 @@
 div.card_daylight {
     height: 50px;
-    
+    width: 90%;
     border-radius: 10px;
     /* border-radius: 1%; */
     background-color: rgb(255, 252, 247);
@@ -51,12 +51,11 @@ div.card_daylight > textarea {
 /*------------------------------------------------------*/
 div.card_night {
     height: 50px;
-    width: 90% auto;
+    width: 90%;
     border-radius: 10px;
     /* border-radius: 1%; */
     background-color: rgb(244, 248, 249);
-    margin: 3px 0;
-    margin-left: 13px;
+    margin: 3%;
     position: relative;
     cursor: -webkit-grab;
     -webkit-box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, .2);
@@ -105,8 +104,7 @@ div.card_diary {
     border-radius: 10px;
     /* border-radius: 1%; */
     background-color: rgb(255, 252, 247);
-    margin: 3px 0;
-    margin-left: 13px;
+    margin: 3%;
     position: relative;
     cursor: -webkit-grab;
     -webkit-box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, .2);
