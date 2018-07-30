@@ -33,7 +33,7 @@ class Dashboard extends Component{
       }
     })
         .then(response => console.log(response))
-        .then(response => JSON.PARSE(response))
+        .then(response => response.json())
         .then(response => {
           console.log(response);
           if(response.message === unanthMessage) {
@@ -70,7 +70,7 @@ class Dashboard extends Component{
   			console.log(response);
   			if(response.message === unanthMessage) {
   				this.props.history.push("/login");
-  				//console.log("hello");
+  				
   			} else {
   			self.setState(prevState =>({
   				boards:[
