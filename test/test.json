@@ -1,0 +1,94 @@
+{
+    "_id": {
+        "$oid": "5b59dc02f523cf3983484ed4"
+    },
+    "boardTitle": "hello from diary",
+    "mode": "diary",
+    "notes": [
+        {
+            "animation": "",
+            "_id": {
+                "$oid": "5b59dc34f523cf3983484ed8"
+            },
+            "noteTitle": "New Note",
+            "cards": [
+                {
+                    "_id": {
+                        "$oid": "5b59dc37f523cf3983484ed9"
+                    },
+                    "cardContent": "New Card",
+                    "created_date": {
+                        "$date": "2018-07-26T14:35:35.589Z"
+                    }
+                }
+            ],
+            "created_date": {
+                "$date": "2018-07-26T14:35:32.414Z"
+            }
+        },
+        {
+            "animation": "",
+            "_id": {
+                "$oid": "5b59dc39f523cf3983484eda"
+            },
+            "noteTitle": "a wonderful new note",
+            "cards": [
+                {
+                    "_id": {
+                        "$oid": "5b59dcf4f523cf3983484ee0"
+                    },
+                    "cardContent": "New Card",
+                    "created_date": {
+                        "$date": "2018-07-26T14:38:44.321Z"
+                    }
+                },
+                {
+                    "_id": {
+                        "$oid": "5b59dcf4f523cf3983484ee1"
+                    },
+                    "cardContent": "New Card",
+                    "created_date": {
+                        "$date": "2018-07-26T14:38:44.571Z"
+                    }
+                }
+            ],
+            "created_date": {
+                "$date": "2018-07-26T14:35:37.637Z"
+            }
+        },
+        {
+            "animation": "",
+            "_id": {
+                "$oid": "5b59dc44f523cf3983484edb"
+            },
+            "noteTitle": "New Note",
+            "cards": [
+                {
+                    "_id": {
+                        "$oid": "5b59dc47f523cf3983484edc"
+                    },
+                    "cardContent": "fkrl",
+                    "created_date": {
+                        "$date": "2018-07-26T14:35:51.684Z"
+                    }
+                },
+                {
+                    "_id": {
+                        "$oid": "5b59dca0f523cf3983484edf"
+                    },
+                    "cardContent": "New Card",
+                    "created_date": {
+                        "$date": "2018-07-26T14:37:20.736Z"
+                    }
+                }
+            ],
+            "created_date": {
+                "$date": "2018-07-26T14:35:48.985Z"
+            }
+        }
+    ],
+    "created_date": {
+        "$date": "2018-07-26T14:34:42.669Z"
+    },
+    "__v": 10
+}
