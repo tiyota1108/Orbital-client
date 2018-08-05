@@ -1,19 +1,30 @@
-body {
+/*body {
   padding-top: 40px;
   padding-bottom: 40px;
   background:url('/signup_background.png');
+  background-repeat: no-repeat;
   background-size: cover;
-} 
+} */
+/* body,
+html{
+    height: 100%;
+} */
 
-.container{
-  background-position: center;
-  margin-top: 150px auto;
-  background-color:red;
+.container_login{
+  position: fixed; /* i dont know what this do*/
+  top: 0;
+  left:0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
   background:url('/signup_background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
   
 }
-.container .form-signin {
-  height:80%;
+.container_login .form-signin {
+  height:30%;
   max-width: 24%;
   padding: 15px;
   margin: 10% auto;
@@ -26,17 +37,119 @@ body {
   box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.7);
   padding: 30px;
 }
-.container .form-signin .form-signin-heading{
+.container_login .form-signin .form-signin-heading{
   text-align:center;
   font-family: "Freight Sans","Roboto",sans-serif;
   margin: 0 0 15px;
+
 }
 .form-signin .checkbox {
   margin-bottom: 10px;
   padding: 30px;
+
 }
 
-.container .form-signin .form-control {
+.container_login .form-signin .form-control {
+  position: relative;
+  min-height: 38px;
+  background: #f0f0f0;
+  box-sizing: border-box;
+  border-radius: 5px 5px 5px 5px;
+  border-width: 0.1px;
+  border-style:ridge;
+  border-color:rgba(240,240,240,0.5);
+  padding: 10px;
+  font-size: 16px;
+  font-family: "Freight Sans","Roboto",sans-serif;
+}
+
+.container_login .form-signin input[type="email"] {
+  margin-bottom: 10px;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  border-radius: 5px 5px 5px 5px;
+
+}
+.container_login .form-signin input[type="password"] {
+  margin-bottom: 10px;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  border-radius: 5px 5px 5px 5px;
+}
+.container_login .hint{
+  margin-top: -5px;
+  margin-left:36%;
+  float: left;
+  font-size: 13px;
+  font-family: "Freight Sans","Roboto",sans-serif;
+  font-size-adjust: 0.25;
+
+}
+.container_login .hint2{
+  margin-top: -5px;
+  margin-right:36%;
+  float: right;
+  font-size: 13px;
+  font-family: "Freight Sans","Roboto",sans-serif;
+  font-size-adjust: 0.25;
+}
+
+.form-signin .btn{
+  align-self:center;
+  border-radius: 5px 5px 5px 5px;
+  border-color: rgba(256,256,256,0.5);
+  border-style:none;
+  color: white;
+  padding: 10px 10px;
+  text-align: center;
+  display: inline-block;
+  font-size: 20px;
+  letter-spacing: 1px;
+  font-family: "Freight Sans","Roboto",sans-serif;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  background: #3797f0;
+  
+}
+
+@media only screen and (max-width: 500px){
+  .container_login{
+  background-position: center;
+  margin-top: 150px auto;
+  background-color:red;
+  background:url('/signup_background.png');
+  background-position: center;
+  
+  }
+  .container_login .form-signin {
+  height:30%;
+  max-width: 85%;
+  padding: 15px;
+  margin: 5% ;
+  margin-top: 30%;
+  border-radius: 5px;
+  border-style: ridge;
+  border-width: 1px;
+  border-color: rgba(200, 200, 200, 0.5);
+  margin-bottom: 15px;
+  background: rgba(256,256,256,0.7);
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.7);
+  padding: 30px;
+}
+.container_login .form-signin .form-signin-heading{
+  text-align:center;
+  font-family: "Freight Sans","Roboto",sans-serif;
+  margin: 0 0 10px;
+}
+.form-signin .checkbox {
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.container_login .form-signin .form-control {
   position: relative;
   min-height: 38px;
   background: #f0f0f0;
@@ -51,30 +164,30 @@ body {
   
 }
 
-.container .form-signin input[type="email"] {
+.container_login .form-signin input[type="email"] {
   margin-bottom: 10px;
   width: 80%;
   margin-left: 10%;
   margin-right: 10%;
   border-radius: 5px 5px 5px 5px;
 }
-.container .form-signin input[type="password"] {
+.container_login .form-signin input[type="password"] {
   margin-bottom: 10px;
   width: 80%;
   margin-left: 10%;
   margin-right: 10%;
   border-radius: 5px 5px 5px 5px;
 }
-.container .hint{
+.container_login .hint{
   margin-top: -5px;
-  margin-left:36%;
+  margin-left:10%;
   float: left;
   font-size: 13px;
   font-family: "Freight Sans","Roboto",sans-serif;
   font-size-adjust: 0.25;
 
 }
-.container .hint2{
+.container_login .hint2{
   margin-top: -5px;
   margin-right:36%;
   float: right;
@@ -100,4 +213,5 @@ body {
   margin-right: 10%;
   background: #3797f0;
   font-style: ;
+}
 }

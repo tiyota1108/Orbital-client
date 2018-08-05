@@ -23,14 +23,14 @@
 }
 
 
-.container {
+.container_dash {
   padding: 2px 16px;
   background-color: white;
   border-radius: 0 0 10px 10px;
   /* cursor: -webkit-grab; */
 
 }
-.container h3{
+.container_dash h3{
   font-size: 14px;
   font-family: "Apple Chancery","Didot",serif; /*might need to check*/
   color: rgb(67, 36, 17);
@@ -39,11 +39,11 @@
   padding: 7px;
   /* z-index: 1; */
 }
-div.container:hover > span {
+div.container_dash:hover > span {
     opacity: 1;
 }
 
-div.container > span {
+div.container_dash > span {
     position: absolute;
     bottom: 2px;
     right: 2px;
@@ -51,11 +51,11 @@ div.container > span {
     transition: opacity .25s linear;
 }
 
-div.container button {
+div.container_dash button {
     margin: 2px;
 }
 
-div.container > textarea {
+div.container_dash > textarea {
     height: 55%;
     background: rgba(255, 255, 255, .5);
 }
@@ -66,7 +66,7 @@ textarea{
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none; 
-  background-color: transparent;
+  background-color: white;
   -webkit-appearance:none;
   font-size: 14px;
   font-family: "Apple Chancery","Didot",serif; /*might need to check*/

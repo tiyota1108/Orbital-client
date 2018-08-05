@@ -50,7 +50,7 @@ class Create extends Component {
   render() {
     const { username, password } = this.state;
     return (
-      <div class="container">
+      <div class="container_login">
         <form class="form-signin" onSubmit={this.onSubmit}>
           <h2 class="form-signin-heading">Register</h2>
           <label for="inputEmail" class="sr-only"></label>
