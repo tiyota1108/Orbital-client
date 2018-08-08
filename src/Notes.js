@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import Card from './Card'
-import FaPlus from 'react-icons/lib/fa/plus-square'
+import FaPlus from 'react-icons/lib/fa/plus'
 import FaPencil from 'react-icons/lib/fa/pencil'
-import FaTrash from 'react-icons/lib/fa/trash-alt'
+import FaTrash from 'react-icons/lib/fa/trash'
 import FaFloppyO from 'react-icons/lib/fa/floppy-o'
 import './notes.css'
 //in this version i moved the set state for updating and deleting
