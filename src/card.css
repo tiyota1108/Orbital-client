@@ -150,20 +150,29 @@ div.card_diary > textarea {
 #add {
   border-radius: 20%;
   background-color: #7a82ab;
-
+  box-shadow:0px;
+  border-radius: 0px;
 }
 
 #edit {
+  border-radius: 20%;
   background-color: #337ab7;
+  box-shadow:0px;
+  border-radius: 0px;
 }
 
 #save {
+  border-radius: 20%;
   background-color: #5cb85c;
+  box-shadow:0px;
+  border-radius: 0px;
 }
 
 #remove {
   border-radius: 20%;
   background-color: #988b85;
+  box-shadow:0px;
+  border-radius: 0px;
 }
 
 /*
