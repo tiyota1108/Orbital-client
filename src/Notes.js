@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Card from './Card'
-import FaPlus from 'react-icons/lib/fa/plus'
+import FaPlus from 'react-icons/lib/fa/plus-square'
 import FaPencil from 'react-icons/lib/fa/pencil'
 import FaTrash from 'react-icons/lib/fa/trash-alt'
 import FaFloppyO from 'react-icons/lib/fa/floppy-o'
