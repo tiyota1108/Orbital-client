@@ -3,9 +3,11 @@ import Note from './Notes'
 import FaPlus from 'react-icons/lib/fa/plus'
 import FaTrash from 'react-icons/lib/fa/trash'
 import More from 'react-icons/lib/io/android-more-horizontal'
+import SearchIcon from 'react-icons/lib/io/ios-search-strong'
 import Card from './Card'
 import Loading from './Loading'
 import Navigation from './Navigation'
+import Search from './Search.js'
 import './boards.css'
 
 //Boards now is the one with the original data structure and adpted
@@ -17,6 +19,7 @@ class Board extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
+			refresh: false,
 			loading: true,
 			notes: []
 		}
@@ -29,6 +32,8 @@ class Board extends Component {
 		this.openNav = this.openNav.bind(this)
 		this.closeNav = this.closeNav.bind(this)
 		this.flipNote = this.flipNote.bind(this)
+		this.openSearch = this.openSearch.bind(this)
+		this.closeSearch = this.closeSearch.bind(this)
 	}
 	//retriving data from server before mounting borad
 	componentWillMount() {//should i use will or did, i use will here to ensure the loading state works
@@ -80,6 +85,7 @@ class Board extends Component {
 
 	add(note) {
 		var self = this;
+		// var ori = this.state.notes.length;
 		fetch(`https://little-planet-1564-api.herokuapp.com/note/${this.boardId}`, {
 			method: 'POST',
 			headers: {
@@ -98,6 +104,14 @@ class Board extends Component {
 				this.props.history.push("/login");
 				//console.log("hello");
 			} else {
+			// 	if(self.state.notes.length !== ori) {
+			// 	self.setState(prevState => ({
+			// 		notes: prevState.notes.map(
+			// 			note => (note.id !== "placeHolder") ? note : {...note,id: response._id}
+			// 			)
+			// 	}));
+			// 	return;
+			// } else {
 			self.setState(prevState =>({
 				notes:[
 				    ...prevState.notes,
@@ -109,12 +123,25 @@ class Board extends Component {
 				    }
 				]
 			}));
+			// return;
 		}
+	// }
 		})
 		.catch( (error) => {
 			if(error.response)
 		console.log(error);
 	})
+	// self.setState(prevState =>({
+	// 	notes:[
+	// 			...prevState.notes,
+	// 			{
+	// 				animation: "",
+	// 				id:"placeHolder",
+	// 				note: note,
+	// 				cards:[],
+	// 			}
+	// 	]
+	// }));
 	}
 
 	updateTitle(newNoteTitle, i) {
@@ -179,6 +206,16 @@ class Board extends Component {
 	}));
 	}
 
+	openSearch() {
+		console.log("opening search layer");
+		this.setState({refresh: true}); //not sure if need this
+		document.getElementById("mySearch").style.width = "100%";
+	}
+
+	closeSearch() {
+		this.setState({refresh: false}); //not sure if need this
+		document.getElementById("mySearch").style.width = "0%";
+	}
 
 
 	openNav() {
@@ -256,7 +293,12 @@ class Board extends Component {
 		return (
 			<div className={`board board_${this.state.mode}`}>
 			<h1>{this.state.boardTitle}</h1>
+			<button id="nav" onClick={this.openSearch}><SearchIcon /></button>
 			<button id="nav" onClick={this.openNav}><More /></button>
+			<Search closeSearch = {this.closeSearch}
+									boardId = {this.boardId}
+									mode = {this.state.mode}
+									refresh = {this.state.refresh}/>
 			<Navigation closeNav = {this.closeNav}
 									logout = {this.logout}
 									boardId = {this.boardId}
@@ -271,14 +313,10 @@ class Board extends Component {
 						id="add">
 					<FaPlus />
 				</button>
-
 					</div>
 				}
 			</div>
 		)
 	}
 }
-// {localStorage.getItem('jwtToken') &&
-// 		<button className="btn btn-primary" onClick={this.logout}>Logout</button>
-// 	}
 export default Board

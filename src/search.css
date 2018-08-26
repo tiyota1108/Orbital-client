@@ -1,0 +1,64 @@
+.search_overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index:1;
+  left: 0;
+  top: 0;
+  background-color: black;
+  opacity:0.9;
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+/* .search_content {
+  position: relative;
+} */
+.search_overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size:36px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.search_overlay a:hover, .search_overlay a:focus {
+  color: white;
+}
+
+.search_overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right:45px;
+  font-size: 60px;
+  cursor: pointer;
+}
+
+.searchbox {
+  margin-top: 5%;
+  width: 50%;
+  padding: 10px 5px 10px 5px;
+  font-size: 1em;
+  font-weight: bold;
+  text-align: center;
+
+}
+.hightlight {
+  text-decoration: underline;
+}
+#undo {
+  margin-top: 5%;
+  font-size: 1em;
+  border-radius: 5%;
+  width: 3%;
+  color: #6b5e62;
+  /* font-weight: bold; */
+  margin-left: 5px;
+  padding: 10px 5px 10px 5px;
+  border: 0px;
+  /* background-color: inherit; */
+  /* background-color: inherit; */
+}
+#undo:hover, #undo:focus {
+  color: #111;
+}
