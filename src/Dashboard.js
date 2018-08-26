@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import DashboardNote from './DashboardNote';
+import HomeIcon from 'react-icons/lib/io/ios-home';
 import './dashboard.css';
 import Board from './Boards';
 
@@ -19,7 +20,6 @@ class Dashboard extends Component{
 		this.update = this.update.bind(this);
 		this.remove = this.remove.bind(this);
 		this.logout = this.logout.bind(this);
-
 	}
   componentWillMount() {
     var self = this;
@@ -160,8 +160,6 @@ class Dashboard extends Component{
 			//window.location.reload();
 		}
 
-
-
 	eachBoard(board, i) {
     return (
       <DashboardNote
@@ -182,6 +180,7 @@ class Dashboard extends Component{
   render(){
     return (
       <div className = "Dash">
+			<Link to = "/" id="home"><HomeIcon /></Link>
         <header className = "Dash-header">
           <h1> Welcome to 1564! </h1>
         </header>

@@ -41,7 +41,6 @@
   font-size: 1em;
   font-weight: bold;
   text-align: center;
-
 }
 .hightlight {
   text-decoration: underline;
@@ -61,4 +60,35 @@
 }
 #undo:hover, #undo:focus {
   color: #111;
+}
+
+@media screen and (max-height:700px) {
+  .overlay a {
+    font-size:20px;
+  }
+  .search_overlay .closebtn {
+    color: pink;
+    font-size: 35px;
+    top: 5px;
+    right: 20px;
+  }
+  .searchbox {
+    margin-top: 15%;
+    width: 50%;
+    padding: 10px 5px 10px 5px;
+    font-size: 0.8em;
+    font-weight: bold;
+    text-align: center;
+  }
+  #undo {
+    margin-top: 5%;
+    font-size: 0.8em;
+    border-radius: 5%;
+    width: 10%;
+    color: #6b5e62;
+    /* font-weight: bold; */
+    margin-left: 5px;
+    padding: 10px 5px 10px 5px;
+    border: 0px;
+  }
 }

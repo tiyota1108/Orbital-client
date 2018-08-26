@@ -64,6 +64,15 @@ div.note button {
   color: #fff;
   font-size: 14px;
 }
+
+.noteIcon {
+  width: 14%;
+  margin-bottom: 5px;
+  margin-left: 15px;
+  margin-top:-50px;
+  float: left;
+  /* background-color: pink; */
+}
 /* .demo8-item {
   position: absolute;
   width: 320px;
