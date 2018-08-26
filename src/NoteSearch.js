@@ -47,7 +47,7 @@ class NoteSearch extends Component {
     // console.log(`flip-container note_${this.props.mode}`);
     return (
       <div className = {`flip-container note_${this.props.mode}`}>
-      <div className = {`note note_${this.props.mode}${this.props.animation}`}>
+      <div className = {`note note_${this.props.mode}`}>
                  {this.renderDisplay()}
       </div>
       </div>
