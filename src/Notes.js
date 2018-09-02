@@ -141,6 +141,7 @@ class Note extends Component {
 			} else {
 				self.setState(prevState =>({
           //usingPlaceHolder : false,
+                    itemsCount:itemsCount + 1,
 					cards:[
 							...prevState.cards,
 							{
@@ -160,6 +161,7 @@ class Note extends Component {
   self.usingPlaceHolder = true;
   self.setState(prevState =>({
     //usingPlaceHolder: true,
+    itemsCount:itemsCount + 1,
     cards:[
         ...prevState.cards,
         {
@@ -269,7 +271,8 @@ class Note extends Component {
 		console.log(error);
 	})
 	self.setState(prevState => ({
-		cards: prevState.cards.filter(card => card.id !== id)
+		cards: prevState.cards.filter(card => card.id !== id),
+		itemsCount:itemsCount - 1
 	}));
 	}
 
