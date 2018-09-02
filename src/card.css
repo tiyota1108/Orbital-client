@@ -206,6 +206,7 @@ div.card_diary  textarea {
 }
 
 #save {
+  float:right;
   background-color: rgba(256,256,256,256,0.5);
 }
 
