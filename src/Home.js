@@ -36,7 +36,7 @@ const Home = (props) => {
 
   <div className = "mode-wrapper">
     <div className="mode1">
-      <p className = "right-side"> click on the text to edit</p>
+      <p className = "right-side"> click on the note title to edit</p>
       <Demo text = "Diary Mode" mode = "diary"></Demo>
     </div>
     <div className = "quote-wrapper">
