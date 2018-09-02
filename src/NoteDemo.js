@@ -194,6 +194,7 @@ renderForm(side) {
   renderDisplay_back() {
     return (
       <div>
+      <img src = {`/${this.props.mode}_icon.png`} className = "noteIcon"/>
       <p onClick={this.editTitle}>
       <ReactMarkdown source = {this.props.children} />
       </p>
