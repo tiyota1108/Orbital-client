@@ -4,6 +4,8 @@ import './home.css';
 import Demo from './Demo';
 
 //style={{ textDecoration: 'none' }}
+// "*Daylight Mode* ![](https://i.imgur.com/COGovJQ.png)"
+
 const Home = (props) => {
   return(
   <div className = 'container_home'>
@@ -60,7 +62,7 @@ const Home = (props) => {
       <p className = "right-side"> use markdown for text format</p>
 
         <Demo className = "showNote" text =
-        "*Daylight Mode* ![](https://i.imgur.com/COGovJQ.png)"
+        "*Daylight Mode* ![](https://i.imgur.com/ipWsrFh.png)"
         mode = "daylight"></Demo>
       </div>
       <div className = "quote-wrapper">
