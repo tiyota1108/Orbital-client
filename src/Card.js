@@ -18,7 +18,7 @@ class Card extends Component{
 		this._handleKeyPress = this._handleKeyPress.bind(this)
 	}
 	componentDidUpdate(){
-		var textArea
+		var textArea;
 		if (this.state.editing){
 			textArea = this._newText
 			textArea.focus()
@@ -28,17 +28,20 @@ class Card extends Component{
 
 	shouldComponentUpdate(nextProps,nextState){
 		return (
+			this.props.index !== nextProps.index||
 			this.props.children !== nextProps.children|| this.state !== nextState
 			)
 
 	}
 
 	edit(){
+		if (this.props.index == "placeHolderCard") return;
 		this.setState({
 			editing: true
 		})
 	}
 	remove(){
+		if (this.props.index == "placeHolderCard") return;
 		this.props.onRemove(this.props.index)
 	}
 

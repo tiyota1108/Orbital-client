@@ -23,6 +23,8 @@ class Board extends Component {
 			loading: true,
 			notes: []
 		}
+		var usingPlaceHolder = false;
+		var comingInEffect = " bounceInUp";
 		var boardId;
 		this.add = this.add.bind(this)
 		this.eachNote = this.eachNote.bind(this)
@@ -84,8 +86,9 @@ class Board extends Component {
 		//-----------------------------------------------------------------------
 
 	add(note) {
+		if(this.usingPlaceHolder) return;
 		var self = this;
-		// var ori = this.state.notes.length;
+		var ori = this.state.notes.length;
 		fetch(`https://little-planet-1564-api.herokuapp.com/note/${this.boardId}`, {
 			method: 'POST',
 			headers: {
@@ -102,16 +105,17 @@ class Board extends Component {
 			console.log(response);
 			if(response.message === unanthMessage) {
 				this.props.history.push("/login");
-				//console.log("hello");
 			} else {
-			// 	if(self.state.notes.length !== ori) {
-			// 	self.setState(prevState => ({
-			// 		notes: prevState.notes.map(
-			// 			note => (note.id !== "placeHolder") ? note : {...note,id: response._id}
-			// 			)
-			// 	}));
-			// 	return;
-			// } else {
+				if(self.state.notes.length !== ori) {
+				self.setState(prevState => ({
+					notes: prevState.notes.map(
+						note => (note.id !== "placeHolder") ? note : {...note,id: response._id}
+						)
+				}));
+				this.comingInEffect = " animated bounceInUp";
+				this.usingPlaceHolder = false;
+				return;
+			} else {
 			self.setState(prevState =>({
 				notes:[
 				    ...prevState.notes,
@@ -123,25 +127,29 @@ class Board extends Component {
 				    }
 				]
 			}));
-			// return;
+			this.comingInEffect = " animated bounceInUp";
+			this.usingPlaceHolder = false;
+			return;
 		}
-	// }
+	}
 		})
 		.catch( (error) => {
 			if(error.response)
 		console.log(error);
 	})
-	// self.setState(prevState =>({
-	// 	notes:[
-	// 			...prevState.notes,
-	// 			{
-	// 				animation: "",
-	// 				id:"placeHolder",
-	// 				note: note,
-	// 				cards:[],
-	// 			}
-	// 	]
-	// }));
+	this.usingPlaceHolder = true;
+	self.setState(prevState =>({
+		notes:[
+				...prevState.notes,
+				{
+					animation: "",
+					id:"placeHolder",
+					note: note,
+					cards:[],
+				}
+		]
+	}));
+	this.comingInEffect = "";
 	}
 
 	updateTitle(newNoteTitle, i) {
