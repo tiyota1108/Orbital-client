@@ -411,6 +411,7 @@ class Note extends Component {
 	renderDisplay_back() {
 		return (
 			<div>
+			    <img src = {`/${this.props.mode}_icon.png`} className = "noteIcon"/>
 				<p onClick={this.editTitle}>{this.props.children}</p>
 				<button onClick={this.remove} id="remove"><FaTrash /></button>
 				<button onClick={this.editTitle} id="edit"><FaPencil /></button>
