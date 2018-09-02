@@ -11,8 +11,12 @@ class Login extends Component {
     this.state = {
       username: '',
       password: '',
-      message: ''
+      message: '',
+      loading:false
     };
+  }
+  toggle(){
+    this.setState({loading:true})
   }
   onChange = (e) => {
     const state = this.state
@@ -22,8 +26,12 @@ class Login extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-
+    this.setState({loading:true})
     const { username, password } = this.state;
+    if (this.state.username == ""){
+      this.setState({loading:false})
+      console.log("adsadadada")
+    }
     fetch("https://little-planet-1564-api.herokuapp.com/auth/login", {
       method: 'POST',
       headers: {
@@ -43,7 +51,9 @@ class Login extends Component {
     .then(response => response.json())
     .then(response => {
       console.log(response);
+      this.setState({loading:false});
       if(response.message !== undefined) {
+            this.state.loading=false;
             this.setState({ message: 'Login failed. Username or password not match' });
       } else {
       localStorage.setItem('jwtToken', 'JWT ' + response.token);
@@ -60,12 +70,16 @@ class Login extends Component {
   }
 
   render() {
+    let btnClass = ["btn"];
+    if(this.state.loading){
+      btnClass.push('loader');
+    }
     const { username, password, message } = this.state;
     return (
       <div className="container_login">
         <form className="form-signin" onSubmit={this.onSubmit}>
           {message !== '' &&
-            <div className="alert alert-warning alert-dismissible" role="alert">
+            <div className="alert" role="alert">
               { message }
             </div>
           }
@@ -75,8 +89,12 @@ class Login extends Component {
           <input type="email" className="form-control" placeholder="Email address" name="username" value={username} onChange={this.onChange} required/>
           <label htmlFor="inputPassword" className="sr-only"></label>
           <input type="password" className="form-control" placeholder="Password" name="password" value={password} onChange={this.onChange} required/>
-
-          <button className="btn" type="submit">Login</button>
+          {this.state.loading ? 
+          (<button className="anim">
+          <div class="loader">
+            <div class="circle"></div>
+           </div></button>): 
+          <button className="btn"  type="submit">Login</button>}
         </form>
         <p class="hint">
           Not A Member? <Link to="/register"> Register Here</Link>
