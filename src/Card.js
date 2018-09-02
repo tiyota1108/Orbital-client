@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import FaPencil from 'react-icons/lib/fa/pencil'
 import FaTrash from 'react-icons/lib/fa/trash'
 import FaFloppyO from 'react-icons/lib/fa/floppy-o'
+import ReactMarkdown from 'react-markdown'
 import './card.css'
 
 class Card extends Component{
@@ -75,7 +76,7 @@ class Card extends Component{
 	renderDisplay(){//style={this.style}
 		return (
 			<div className={`card_${this.props.mode}`} >
-			    <p onClick={this.edit}>{this.props.children}</p>
+					<p onClick={this.edit}><ReactMarkdown source = {this.props.children} /></p>
 			    <span>
 			        <button onClick={this.edit} id="edit"><FaPencil /></button>
 			        <button onClick={this.remove} id="remove"><FaTrash /></button>

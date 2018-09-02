@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ReactMarkdown from 'react-markdown'
 import Card from './Card'
 import FaPlus from 'react-icons/lib/fa/plus'
 import FaPencil from 'react-icons/lib/fa/pencil'
@@ -68,7 +69,7 @@ class Note extends Component {
 				cardContent: card.cardContent}
 			)),
 			itemsCount : this.props.cards.length,
-      effect : this.props.index == "placeHolder" ? " animated fadeIn" : ""
+      effect : this.props.index === "placeHolder" ? " animated fadeIn" : ""
 		});
 	}
 	componentDidMount() {
@@ -88,7 +89,7 @@ class Note extends Component {
 
 
 	editTitle(){
-    if (this.props.index == "placeHolder") return;
+    if (this.props.index === "placeHolder") return;
 		console.log('edit title')
 		this.setState({
 			cards:this.state.cards,
@@ -241,7 +242,7 @@ class Note extends Component {
   }
 
 	remove() {
-    if (this.props.index == "placeHolder") return;
+    if (this.props.index === "placeHolder") return;
 		this.props.onRemove(this.props.index)
 	}
 
@@ -328,13 +329,12 @@ class Note extends Component {
 
   handleDoubleClick() {
     if(this.isDragging) return;
-    if(this.props.index == "placeHolder") return;
+    if(this.props.index === "placeHolder") return;
     this.props.onFlip(this.props.index, " flipped");
   }
 
 	eachCard(card, i) {
 		const {mouseY, isPressed, originalPosOfLastPressed, cards} = this.state;
-
 		const style = originalPosOfLastPressed === card && isPressed
 			? {
 					scale: spring(1.1, springConfig),
@@ -346,8 +346,6 @@ class Note extends Component {
 					shadow: spring(1, springConfig),
 					y: spring(cards.indexOf(card) * 2, springConfig),
 				};
-        //                  usingPlaceHolder = {this.state.usingPlaceHolder}
-
 		return (
 				<Motion style={style} key={i}>
 					{({scale, shadow, y}) =>
@@ -356,7 +354,6 @@ class Note extends Component {
 							onTouchStart={this.handleTouchStart.bind(null, card, y)}
 							className="demo8-item"
 							style={{
-
 								transform: `translate3d(0, ${y}px, 0) scale(${scale})`,
 								WebkitTransform: `translate3d(0, ${y}px, 0) scale(${scale})`,
 								zIndex: card === originalPosOfLastPressed ? 0 : cards.indexOf(card),
@@ -390,7 +387,7 @@ class Note extends Component {
 	renderDisplay() {
 		return (
 			<div>
-				<p onClick={this.editTitle}>{this.props.children}</p>
+			  <p onClick={this.editTitle}><ReactMarkdown source = {this.props.children} /></p>
 				<button onClick={this.remove} id="remove"><FaTrash /></button>
 				<button onClick={this.editTitle} id="edit"><FaPencil /></button>
 				<div className="demo8-outer">
@@ -408,7 +405,7 @@ class Note extends Component {
 	renderDisplay_back() {
 		return (
 			<div>
-				<p onClick={this.editTitle}>{this.props.children}</p>
+				<p onClick={this.editTitle}><ReactMarkdown source = {this.props.children} /></p>
 				<button onClick={this.remove} id="remove"><FaTrash /></button>
 				<button onClick={this.editTitle} id="edit"><FaPencil /></button>
 			</div>

@@ -24,7 +24,6 @@ const Home = (props) => {
 <div className = "modes">
 
 <div className = "mode-wrapper">
-
   <div className="mode2">
   <p className = "right-side"> break it down by adding cards</p>
 
@@ -55,11 +54,35 @@ const Home = (props) => {
       <p className = "diary-quote">"If you love a flower that lives on a star, it is sweet to look at the sky at night. All the stars are a-bloom with flowers..."</p>
     </div>
   </div>
+
+    <div className = "mode-wrapper">
+      <div className="mode2">
+      <p className = "right-side"> use markdown for text format</p>
+
+        <Demo className = "showNote" text =
+        "*Daylight Mode* ![](https://i.imgur.com/COGovJQ.png)"
+        mode = "daylight"></Demo>
+      </div>
+      <div className = "quote-wrapper">
+        <p className = "diary-quote">"The grain, which is also golden, will bring me back the thought of you. And I shall love to listen to the wind in the wheat."</p>
+      </div>
+    </div>
+
+    <div className = "mode-wrapper">
+      <div className="mode3">
+        <p className = "right-side"> drag & drop to reorder cards</p>
+        <Demo text = "Night Mode" mode = "night"></Demo>
+      </div>
+      <div className = "quote-wrapper">
+        <p className = "diary-quote">"If you love a flower that lives on a star, it is sweet to look at the sky at night. All the stars are a-bloom with flowers..."</p>
+      </div>
+    </div>
+
 </div>
 </div>
 
   <div className="mode4">
-  <pre>inspired by Le Petit Prince{"\n"}made with love by a little prince & not her fox</pre>
+  <pre>inspired by Le Petit Prince{"\n"}made with &hearts; by a little prince & not her fox</pre>
   </div>
   </div>);
   }

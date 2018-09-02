@@ -185,14 +185,14 @@ class Dashboard extends Component{
           <h1> Welcome to 1564! </h1>
         </header>
         <div className = "Exiting-Boards">
-          <p>click to open your board</p>
+					<div className = "DashboardP">click to open your board</div>
 					<div className = "Grid animated bounceInUp">
           {
             this.state.boards.map(this.eachBoard)
           }
 					</div>
         </div>
-				<p>or, create new boards</p>
+				<div className = "DashboardP">or, create new boards</div>
 
         <div className = "Grid">
 

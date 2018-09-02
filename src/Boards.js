@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ReactMarkdown from 'react-markdown'
 import Note from './Notes'
 import FaPlus from 'react-icons/lib/fa/plus'
 import FaTrash from 'react-icons/lib/fa/trash'
@@ -300,7 +301,7 @@ class Board extends Component {
 		//sent to the login page without error being thrown
 		return (
 			<div className={`board board_${this.state.mode}`}>
-			<h1>{this.state.boardTitle}</h1>
+			<h1><ReactMarkdown source={this.state.boardTitle} /></h1>
 			<button id="nav" onClick={this.openSearch}><SearchIcon /></button>
 			<button id="nav" onClick={this.openNav}><More /></button>
 			<Search closeSearch = {this.closeSearch}

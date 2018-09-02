@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactMarkdown from 'react-markdown';
 import FaPencil from 'react-icons/lib/fa/pencil'
 import FaTrash from 'react-icons/lib/fa/trash'
 import FaFloppyO from 'react-icons/lib/fa/floppy-o'
@@ -90,7 +91,10 @@ class DashboardNote extends Component {
     className = "note-image" />
       </Link>
       <div className = "container_dash">
-  			<h3 onClick={this.edit}>{this.props.boardTitle}</h3>
+        <div onClick={this.edit}>
+              <ReactMarkdown
+              className = 'dashboardBoardTitle'
+              source={this.props.boardTitle} /></div>
         <span>
             <button onClick={this.edit} id="edit"><FaPencil /></button>
             <button onClick={this.remove} id="remove"><FaTrash /></button>
