@@ -59,10 +59,14 @@
 }
 
 
+
+
 div.note button {
   position:relative;
-  color: #fff;
+  color: white;
   font-size: 14px;
+  background-color: yellow;
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.55);
 }
 
 .noteIcon {
@@ -115,6 +119,22 @@ div.note button {
   font-family: "Didot","Apple Chancery",sans-serif;
   color: rgb(67, 36, 17);
 }
+.note_daylight textarea{
+  margin:5% auto;
+  font-size: 20px;
+  line-height: 1.2;
+  text-align: center;
+  font-family: "Didot","Apple Chancery",sans-serif;
+  overflow: auto;
+  outline: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none; 
+  -webkit-appearance:none;
+  border:none;
+  background: transparent;
+
+}
 
 /*------------------------------------------------------*/
 .note_night {
@@ -124,6 +144,22 @@ div.note button {
 .note_night p {
   font-family: "Didot", "Apple Chancery", sans-serif; /*might need to check*/
   color: rgb(67, 36, 17);
+}
+.note_night textarea{
+  margin:5% auto;
+  font-size: 20px;
+  line-height: 1.2;
+  text-align: center;
+  font-family: "Didot","Apple Chancery",sans-serif;
+  overflow: auto;
+  outline: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none; 
+  -webkit-appearance:none;
+  border:none;
+  background: transparent;
+
 }
 /*------------------------------------------------------*/
 .note_diary {
@@ -135,54 +171,41 @@ div.note button {
   font-family: "PT Sans Narrow","Myriad Pro", sans-serif; /*might need to check*/
   color: rgb(67, 36, 17);
 }
+.note_diary textarea{
+  margin:5% auto;
+  font-size: 20px;
+  line-height: 1.2;
+  text-align: center;
+  font-family: "PT Sans Narrow","Myriad Pro", sans-serif; 
+  overflow: auto;
+  outline: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none; 
+  -webkit-appearance:none;
+  border:none;
+  background: transparent;
+
+}
 /*------------------------------------------------------*/
 
 #add {
   border-radius: 20%;
-  background-color: #7a82ab;
-  box-shadow:0px;
+  background-color: rgba(0,0,0,0.8);
+
 }
 
 #edit {
   border-radius: 20%;
-  background-color: #337ab7;
-  box-shadow:0px;
+  background-color: rgba(0,0,0,0.8);
 }
 
 #save {
   border-radius: 20%;
-  background-color: #5cb85c;
-  box-shadow:0px;
+  background-color: rgba(0,0,0,0.8);
 }
 
 #remove {
   border-radius: 20%;
-  background-color: #988b85;
-  box-shadow:0px;
+  background-color: yellow;
 }
-
-/*if you do not specify, height will auto adjust*/
-/* .note_daylight {
-  box-shadow: 6px 6px 4px 0 rgba(0, 0, 0, 0.3);
-
-    width: 250px;
-    margin: 20px;
-    height: 200px;
-    border-radius: 3%;
-    background:#fffdf0;
-    position:relative;
-    transition: 0.6s;
-    cursor: pointer;
-    transform-style: preserve-3d;
-  } */
-    /* float:left; */
-
-    /*added in cursor for note*/
-    /* overflow: inherit; */
-    /*background: -moz-radial-gradient(center, ellipse cover, #eab92d 57%, #c79810 99%);
-    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(57%, #eab92d), color-stop(99%, #c79810));
-    background: -webkit-radial-gradient(center, ellipse cover, #eab92d 57%, #c79810 99%);
-    background: -o-radial-gradient(center, ellipse cover, #eab92d 57%, #c79810 99%);
-    background: -ms-radial-gradient(center, ellipse cover, #eab92d 57%, #c79810 99%);
-    background: radial-gradient(ellipse at center, #eab92d 57%, #c79810 99%);*/
-    /* filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eab92d', endColorstr='#c79810', GradientType=1); */

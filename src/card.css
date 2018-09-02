@@ -4,11 +4,12 @@ div.card_daylight {
     border-radius: 10px;
     /* border-radius: 1%; */
     background-color: rgb(255, 252, 247);
-    margin-left: 5%;
+    margin: 5%;
     position: relative;
     cursor: -webkit-grab;
     -webkit-box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, .2);
     box-shadow: 0px 3px 5.52px 0.48px rgba(0, 0, 0, 0.28);
+    overflow: auto;
 
 }
 
@@ -19,12 +20,13 @@ div.card_daylight:active {
 }
 
 div.card_daylight p {
-    font-size: 14px;
+    font-size: 13px;
     font-family: "Didot","Apple Chancery",sans-serif; /*might need to check*/
     color: rgb(67, 36, 17);
     line-height: 1.2;
     text-align: left;
     padding: 8px;
+    overflow: auto;
 }
 
 
@@ -38,15 +40,29 @@ div.card_daylight > span {
     right: 2px;
     opacity: 0;
     transition: opacity .25s linear;
+    overflow: auto;
 }
 
 div.card_daylight button {
     margin: 2px;
 }
 
-div.card_daylight > textarea {
-    height: 55%;
+div.card_daylight  textarea {
+    height: 20px;
     background: rgba(255, 255, 255, .5);
+    font-size: 13px;
+    font-family: "Didot","Apple Chancery",sans-serif; /*might need to check*/
+    color: rgb(67, 36, 17);
+    line-height: 1.2;
+    text-align: left;
+    padding: 8px;
+    overflow: auto;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none; 
+    -webkit-appearance:none;
+    border:none;
 }
 /*------------------------------------------------------*/
 div.card_night {
@@ -60,6 +76,7 @@ div.card_night {
     cursor: -webkit-grab;
     -webkit-box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, .2);
     box-shadow: 0px 3px 5.52px 0.48px rgba(0, 0, 0, 0.28);
+    overflow: auto;
 }
 
 
@@ -68,12 +85,13 @@ div.card_night:active {
 }
 
 div.card_night p {
-    font-size: 14px;
+    font-size: 13px;
     font-family: "Didot","Apple Chancery",sans-serif; /*might need to check*/
     color: rgb(67, 36, 17);
     line-height: 1.2;
     text-align: left;
     padding: 8px;
+    overflow: auto;
 }
 
 
@@ -87,15 +105,29 @@ div.card_night > span {
     right: 2px;
     opacity: 0;
     transition: opacity .25s linear;
+    overflow: auto;
 }
 
 div.card_night button {
-    margin: 2px;
+    margin: 0px;
 }
 
-div.card_night > textarea {
-    height: 55%;
+div.card_night textarea {
+    height: 20px;
     background: rgba(255, 255, 255, .5);
+    font-size: 13px;
+    font-family: "Didot","Apple Chancery",sans-serif; /*might need to check*/
+    color: rgb(67, 36, 17);
+    line-height: 1.2;
+    text-align: left;
+    padding: 8px;
+    overflow: auto;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none; 
+    -webkit-appearance:none;
+    border:none;
 }
 /*------------------------------------------------------*/
 div.card_diary {
@@ -109,6 +141,7 @@ div.card_diary {
     cursor: -webkit-grab;
     -webkit-box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, .2);
     box-shadow: 0px 3px 5.52px 0.48px rgba(0, 0, 0, 0.28);
+    overflow: auto;
 }
 
 
@@ -117,7 +150,7 @@ div.card_diary:active {
 }
 
 div.card_diary p {
-    font-size: 14px;
+    font-size: 13px;
     font-family: "PT Sans Narrow","Myriad Pro", sans-serif;
     color: rgb(67, 36, 17);
     line-height: 1.2;
@@ -142,34 +175,40 @@ div.card_diary button {
     margin: 2px;
 }
 
-div.card_diary > textarea {
-    height: 55%;
+div.card_diary  textarea {
+    height: 20px;
     background: rgba(255, 255, 255, .5);
+    font-size: 13px;
+    font-family: "PT Sans Narrow","Myriad Pro", sans-serif;
+    color: rgb(67, 36, 17);
+    line-height: 1.2;
+    text-align: left;
+    padding: 8px;
+    overflow: auto;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none; 
+    border:none;
+    -webkit-appearance:none;
 }
 /*------------------------------------------------------*/
-
 #add {
   border-radius: 20%;
   background-color: #7a82ab;
-  box-shadow:0px;
 }
 
 #edit {
-  border-radius: 20%;
   background-color: #337ab7;
-  box-shadow:0px;
 }
 
 #save {
-  border-radius: 20%;
-  background-color: #5cb85c;
-  box-shadow:0px;
+  background-color: rgba(256,256,256,256,0.5);
 }
 
 #remove {
   border-radius: 20%;
-  background-color: #988b85;
-  box-shadow:0px;
+  background-color: rgba(256,256,256,256,0.5);
 }
 
 /*

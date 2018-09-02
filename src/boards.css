@@ -39,6 +39,7 @@ div.board {
 }
 div.board h1 {
     font-size: 1.2em;
+
     line-height: 1.2;
     text-align: left;
     padding-top: 5px;
@@ -174,21 +175,44 @@ div.card_diary p {
 /*------------------------------------------------------*/
 #add {
   border-radius: 20%;
-  background-color: #7a82ab;
+  color: rgba(112,102,90,0.6);
+  cursor:pointer;
+  font-size: 20px;
+  border-radius: 2px;
+  border: 0px;
+  background-color: inherit;
+  margin-top: 5px;
+
 
 }
 
 #edit {
-  background-color: #337ab7;
+  background-color: inherit;
+  color: rgba(112,102,90,0.6);
+  cursor:pointer;
+  font-size: 20px;
+  border-radius: 2px;
+  border: 0px;
+  margin:-5px;
 }
 
 #save {
-  background-color: #5cb85c;
+  background-color: inherit;
+  color: rgba(112,102,90,0.6);
+  cursor:pointer;
+  font-size: 18px;
+  border-radius: 2px;
+  border: 0px;
 }
 
 #remove {
   border-radius: 20%;
-  background-color: #988b85;
+  background-color: inherit;
+  color: rgba(112,102,90,0.6);
+  cursor:pointer;
+  font-size: 20px;
+  border-radius: 2px;
+  border: 0px;
 }
 
 #nav {
