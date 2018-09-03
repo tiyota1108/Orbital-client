@@ -124,6 +124,7 @@ class NoteDemo extends Component {
     this.setState({isPressed: false, topDeltaY: 0});
   };
 
+  // onTouchStart={this.handleTouchStart.bind(null, card, y)}
   eachCard(card, i) {
 		const {mouseY, isPressed, originalPosOfLastPressed, cards} = this.state;
 		const style = originalPosOfLastPressed === card && isPressed
@@ -142,7 +143,6 @@ class NoteDemo extends Component {
 					{({scale, shadow, y}) =>
 						<div
 							onMouseDown={this.handleMouseDown.bind(null, card, y)}
-							onTouchStart={this.handleTouchStart.bind(null, card, y)}
 							className="demo8-item"
 							style={{
 								transform: `translate3d(0, ${y}px, 0) scale(${scale})`,
