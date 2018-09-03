@@ -52,8 +52,8 @@ class NoteDemo extends Component {
   }
 
   componentDidMount() {
-  		window.addEventListener('touchmove', this.handleTouchMove);
-  		window.addEventListener('touchend', this.handleMouseUp);
+  		// window.addEventListener('touchmove', this.handleTouchMove);
+  		// window.addEventListener('touchend', this.handleMouseUp);
   		window.addEventListener('mousemove', this.handleMouseMove);
   		window.addEventListener('mouseup', this.handleMouseUp);
   	};
@@ -86,14 +86,14 @@ class NoteDemo extends Component {
       editingTitle: false
     })
   }
-  handleTouchStart = (key, pressLocation, e) => {
-		this.handleMouseDown(key, pressLocation, e.touches[0]);
-	};
-
-	handleTouchMove = (e) => {
-		e.preventDefault();
-		this.handleMouseMove(e.touches[0]);
-	};
+  // handleTouchStart = (key, pressLocation, e) => {
+	// 	this.handleMouseDown(key, pressLocation, e.touches[0]);
+	// };
+  //
+	// handleTouchMove = (e) => {
+	// 	e.preventDefault();
+	// 	this.handleMouseMove(e.touches[0]);
+	// };
 
 	handleMouseDown = (pos, pressY, {pageY}) => {
 		this.setState({
