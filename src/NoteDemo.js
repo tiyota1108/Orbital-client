@@ -52,8 +52,8 @@ class NoteDemo extends Component {
   }
 
   componentDidMount() {
-  		window.addEventListener('touchmove', this.handleTouchMove);
-  		window.addEventListener('touchend', this.handleMouseUp);
+  		// window.addEventListener('touchmove', this.handleTouchMove);
+  		// window.addEventListener('touchend', this.handleMouseUp);
   		window.addEventListener('mousemove', this.handleMouseMove);
   		window.addEventListener('mouseup', this.handleMouseUp);
   	};
@@ -86,14 +86,14 @@ class NoteDemo extends Component {
       editingTitle: false
     })
   }
-  handleTouchStart = (key, pressLocation, e) => {
-		this.handleMouseDown(key, pressLocation, e.touches[0]);
-	};
-
-	handleTouchMove = (e) => {
-		e.preventDefault();
-		this.handleMouseMove(e.touches[0]);
-	};
+  // handleTouchStart = (key, pressLocation, e) => {
+	// 	this.handleMouseDown(key, pressLocation, e.touches[0]);
+	// };
+  //
+	// handleTouchMove = (e) => {
+	// 	e.preventDefault();
+	// 	this.handleMouseMove(e.touches[0]);
+	// };
 
 	handleMouseDown = (pos, pressY, {pageY}) => {
 		this.setState({
@@ -124,6 +124,7 @@ class NoteDemo extends Component {
     this.setState({isPressed: false, topDeltaY: 0});
   };
 
+  // onTouchStart={this.handleTouchStart.bind(null, card, y)}
   eachCard(card, i) {
 		const {mouseY, isPressed, originalPosOfLastPressed, cards} = this.state;
 		const style = originalPosOfLastPressed === card && isPressed
@@ -142,7 +143,6 @@ class NoteDemo extends Component {
 					{({scale, shadow, y}) =>
 						<div
 							onMouseDown={this.handleMouseDown.bind(null, card, y)}
-							onTouchStart={this.handleTouchStart.bind(null, card, y)}
 							className="demo8-item"
 							style={{
 								transform: `translate3d(0, ${y}px, 0) scale(${scale})`,
@@ -194,6 +194,7 @@ renderForm(side) {
   renderDisplay_back() {
     return (
       <div>
+      <img src = {`/${this.props.mode}_icon.png`} className = "noteIcon"/>
       <p onClick={this.editTitle}>
       <ReactMarkdown source = {this.props.children} />
       </p>
