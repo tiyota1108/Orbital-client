@@ -290,7 +290,7 @@ html{
   
   }
   .container_login .form-signin {
-  height:30%;
+  min-height:180px;
   max-width: 85%;
   padding: 15px;
   margin: 5% ;
@@ -361,8 +361,9 @@ html{
   font-size-adjust: 0.25;
 }
 
-.btn{
+.container_login .form-signin .btn{
   align-self:center;
+
   border-radius: 5px 5px 5px 5px;
   border-color: rgba(256,256,256,0.5);
   border-style:none;
