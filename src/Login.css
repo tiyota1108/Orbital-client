@@ -139,6 +139,7 @@ html{
   margin-right: 10%;
   background: #3797f0;
   animation:animation-rotate 750ms linear infinite;
+  animation-iteration-count: infinite;
       
 }
 .anim {
@@ -208,65 +209,71 @@ html{
   border-radius: 50%;
   border-left-color: transparent;
   border-right-color: transparent;
-  animation-iteration-count:infinite;
+  animation-iteration-count:10;
   animation: orbit;
-  animation-duration: 10.5s;
-    
-  &:after {
-    content: '';
-    position: absolute;
-    width: 5px;
-    height: 5px;
-    border-radius: 5px;
-    background: rgba(255, 255, 255, 1);
-  }
-    
-  &:nth-child(2) {  
-    animation-delay: 240ms;
-  }
+  animation-duration: 120s;
+
 }
 
 
 @keyframes orbit { 
   0% { 
-    transform: rotate(225deg); 
+    transform: rotate(2000deg); 
     opacity: 1;
     animation-timing-function: ease-out;
   } 
     
-  7% { 
-    transform: rotate(345deg);
+  10% { 
+    transform: rotate(4000deg);
     animation-timing-function: linear;
   }
     
-  30% { 
-    transform: rotate(455deg);
-    animation-timing-function: ease-in-out;   }
+  20% { 
+    transform: rotate(6000deg);
+    animation-timing-function: linear;   }
     
-  39% {
-    transform: rotate(690deg);
+  30% {
+    transform: rotate(8000deg);
     animation-timing-function: linear;
   }
     
-  70% {
-    transform: rotate(815deg);
+  40% {
+    transform: rotate(10000deg);
     opacity: 1;
-    animation-timing-function: ease-out;
-  }
-    
-  75% { 
-    transform: rotate(945deg); 
     animation-timing-function: linear;
   }
     
-  76% {
-    transform: rotate(945deg);
+  50% { 
+    transform: rotate(12000deg); 
+    animation-timing-function: linear;
+  }
+    
+  60% {
+    transform: rotate(14000deg);
+    opacity: 1;
+    animation-timing-function: linear;
+  }
+
+  70% {
+    transform: rotate(16000deg);
+    opacity: 1;
+    animation-timing-function: linear;
+  }
+
+  80% {
+    transform: rotate(18000deg);
+    opacity: 1;
+    animation-timing-function: linear;
+  }
+
+  90% {
+    transform: rotate(20000deg);
     opacity: 1;
     animation-timing-function: linear;
   }
   
   100% {
-    transform:rotate(945deg); 
+    transform:rotate(22000deg); 
     opacity: 1;
     animation-timing-function: linear;
   } 

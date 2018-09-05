@@ -30,15 +30,7 @@
   /* cursor: -webkit-grab; */
 
 }
-.container_dash h3{
-  font-size: 14px;
-  font-family: "Apple Chancery","Didot",serif; /*might need to check*/
-  color: rgb(67, 36, 17);
-  line-height: 1.2;
-  text-align: left;
-  padding: 7px;
-  /* z-index: 1; */
-}
+
 div.container_dash:hover > span {
     opacity: 1;
 }
@@ -65,7 +57,7 @@ textarea{
   outline: none;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
-  box-shadow: none; 
+  box-shadow: none;
   background-color: white;
   -webkit-appearance:none;
   font-size: 14px;

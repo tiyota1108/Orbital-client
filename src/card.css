@@ -25,7 +25,8 @@ div.card_daylight p {
     color: rgb(67, 36, 17);
     line-height: 1.2;
     text-align: left;
-    padding: 8px;
+    padding-left: 5px;
+    padding-top: 0.1px;
     overflow: auto;
 }
 
@@ -60,7 +61,7 @@ div.card_daylight  textarea {
     outline: none;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
-    box-shadow: none; 
+    box-shadow: none;
     -webkit-appearance:none;
     border:none;
 }
@@ -90,7 +91,8 @@ div.card_night p {
     color: rgb(67, 36, 17);
     line-height: 1.2;
     text-align: left;
-    padding: 8px;
+    padding-left: 5px;
+    padding-top: 0.1px;
     overflow: auto;
 }
 
@@ -125,7 +127,7 @@ div.card_night textarea {
     outline: none;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
-    box-shadow: none; 
+    box-shadow: none;
     -webkit-appearance:none;
     border:none;
 }
@@ -155,7 +157,8 @@ div.card_diary p {
     color: rgb(67, 36, 17);
     line-height: 1.2;
     text-align: left;
-    padding: 8px;
+    padding-left: 5px;
+    padding-top: 0.1px;
 }
 
 
@@ -188,7 +191,7 @@ div.card_diary  textarea {
     outline: none;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
-    box-shadow: none; 
+    box-shadow: none;
     border:none;
     -webkit-appearance:none;
 }

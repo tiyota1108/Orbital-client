@@ -53,8 +53,9 @@ class Login extends Component {
       console.log(response);
       this.setState({loading:false});
       if(response.message !== undefined) {
-            this.state.loading=false;
-            this.setState({ message: 'Login failed. Username or password not match' });
+            
+            this.setState({ message: 'Login failed. Username or password not match',
+            loading:false });
       } else {
       localStorage.setItem('jwtToken', 'JWT ' + response.token);
       this.setState({ message: 'Welcome!'});
