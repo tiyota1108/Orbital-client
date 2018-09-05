@@ -16,7 +16,7 @@ html{
 @keyframes animation-rotate { 100% { transform: rotate(360deg); } }
 
 .container_login{
-  position: fixed; /* i dont know what this do*/
+  position: fixed;
   top: 0;
   left:0;
   right: 0;
@@ -26,7 +26,7 @@ html{
   background:url('/signup_background.png');
   background-size: cover;
   background-repeat: no-repeat;
-  
+
 }
 .container_login .form-signin {
   height:30%;
@@ -123,7 +123,7 @@ html{
   margin-left: 10%;
   margin-right: 10%;
   background: #3797f9;
-  
+
 }
 .load{
   align-self:center;
@@ -133,14 +133,14 @@ html{
   color: white;
   padding: 10px 10px;
   text-align: center;
-  
+
   width: 80%;
   margin-left: 40%;
   margin-right: 10%;
   background: #3797f0;
   animation:animation-rotate 750ms linear infinite;
   animation-iteration-count: infinite;
-      
+
 }
 .anim {
   align-self:center;
@@ -171,8 +171,8 @@ html{
     padding: 0 10px;
     opacity: 1;
     outline: none;
-  } 
-  
+  }
+
   100% {
     width: 40px;
     height: 40px;
@@ -180,7 +180,7 @@ html{
     background-color: #3797f0;;
     opacity: 1;
     border: 0;
-    
+
   }
 }
 
@@ -216,38 +216,38 @@ html{
 }
 
 
-@keyframes orbit { 
-  0% { 
-    transform: rotate(2000deg); 
+@keyframes orbit {
+  0% {
+    transform: rotate(2000deg);
     opacity: 1;
     animation-timing-function: ease-out;
-  } 
-    
-  10% { 
+  }
+
+  10% {
     transform: rotate(4000deg);
     animation-timing-function: linear;
   }
-    
-  20% { 
+
+  20% {
     transform: rotate(6000deg);
     animation-timing-function: linear;   }
-    
+
   30% {
     transform: rotate(8000deg);
     animation-timing-function: linear;
   }
-    
+
   40% {
     transform: rotate(10000deg);
     opacity: 1;
     animation-timing-function: linear;
   }
-    
-  50% { 
-    transform: rotate(12000deg); 
+
+  50% {
+    transform: rotate(12000deg);
     animation-timing-function: linear;
   }
-    
+
   60% {
     transform: rotate(14000deg);
     opacity: 1;
@@ -271,12 +271,12 @@ html{
     opacity: 1;
     animation-timing-function: linear;
   }
-  
+
   100% {
-    transform:rotate(22000deg); 
+    transform:rotate(22000deg);
     opacity: 1;
     animation-timing-function: linear;
-  } 
+  }
 }
 
 
@@ -287,7 +287,7 @@ html{
   background-color:red;
   background:url('/signup_background.png');
   background-position: center;
-  
+
   }
   .container_login .form-signin {
   height:30%;
@@ -326,7 +326,7 @@ html{
   padding: 10px;
   font-size: 16px;
   font-family: "Freight Sans","Roboto",sans-serif;
-  
+
 }
 
 .container_login .form-signin input[type="email"] {

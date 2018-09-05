@@ -56,24 +56,21 @@ class Card extends Component{
 
 	_handleKeyPress = (e) => {
         if (e.key === 'Enter') {
-        console.log('do validate');
         }
     }
-	renderForm(){//style={this.style}
+	renderForm(){
 		return (
 			<div className={`card_${this.props.mode}`} >
 			    <form onSubmit={this.save}>
 			        <textarea ref={input => this._newText = input}
 			            defaultValue={this.props.children}/>
 			        <button id="save"><FaFloppyO/></button>
-
-
 			    </form>
 			</div>
 		)
 	}
 
-	renderDisplay(){//style={this.style}
+	renderDisplay(){
 		return (
 			<div className={`card_${this.props.mode}`} >
 					<p onClick={this.edit}><ReactMarkdown source = {this.props.children} /></p>

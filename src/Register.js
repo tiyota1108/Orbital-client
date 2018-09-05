@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-//import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './Login.css';
 
@@ -23,11 +22,6 @@ class Create extends Component {
     e.preventDefault();
 
     const { username, password } = this.state;
-
-    // axios.post('/api/auth/register', { username, password })
-    //   .then((result) => {
-    //     this.props.history.push("/login")
-    //   });
       fetch("https://little-planet-1564-api.herokuapp.com/auth/register", {
   			method: 'POST',
   			headers: {
@@ -35,7 +29,7 @@ class Create extends Component {
   				'Content-Type': 'application/json',
   			},
   			body: JSON.stringify({
-  				email: username,//i just use the username to fake the unique email first
+  				email: username,
           password: password
   			})
   		})

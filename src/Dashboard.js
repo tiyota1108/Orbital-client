@@ -5,7 +5,6 @@ import HomeIcon from 'react-icons/lib/io/ios-home';
 import './dashboard.css';
 import Board from './Boards';
 
-//need to add in edit and delete board functionalities
 const unanthMessage = "Unauthorized user,please login.";
 
 class Dashboard extends Component{
@@ -24,7 +23,7 @@ class Dashboard extends Component{
   componentWillMount() {
     var self = this;
     this.userId = this.props.match.params.id;
-    fetch(`https://little-planet-1564-api.herokuapp.com/board/${this.userId}`, { //added in the second argument to specify token
+    fetch(`https://little-planet-1564-api.herokuapp.com/board/${this.userId}`, {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
@@ -34,11 +33,10 @@ class Dashboard extends Component{
     })
         .then(response => response.json())
         .then(response => {
-          console.log(response);
+          // console.log(response);
           if(response.message === unanthMessage) {
             this.props.history.push("/login");
           } else {
-            ///change from here
           self.setState({
             boards: response.boards,
           })
@@ -47,18 +45,16 @@ class Dashboard extends Component{
         .catch( (error) => {
         console.log(error);
       })
-      //console.log(self.state.notes);
-
     }
 
-    add(mode) {//adapt the setState to add new key-value pair into the notes object
+    add(mode) {
   		var self = this;
   		fetch(`https://little-planet-1564-api.herokuapp.com/board/${this.userId}`, {
   			method: 'POST',
   			headers: {
   				'Accept': 'application/json',
   				'Content-Type': 'application/json',
-  				'Authorization' : `${localStorage.getItem('jwtToken')}`//add token
+  				'Authorization' : `${localStorage.getItem('jwtToken')}`
   			},
   			body: JSON.stringify({
   				mode: mode,
@@ -66,10 +62,9 @@ class Dashboard extends Component{
   		})
   		.then(response => response.json())
   		.then(response => {
-  			console.log(response);
+  			// console.log(response);
   			if(response.message === unanthMessage) {
   				this.props.history.push("/login");
-  				//console.log("hello");
   			} else {
   			self.setState(prevState =>({
   				boards:[
@@ -110,7 +105,7 @@ class Dashboard extends Component{
 			})
 			.then(response => response.json())
 			.then(response => {
-				console.log(response);
+				// console.log(response);
 				if(response.message === unanthMessage) {
 					this.props.history.push("/login");
 				}
@@ -132,15 +127,14 @@ class Dashboard extends Component{
 				headers: {
 					'Accept': 'application/json',
 					'Content-Type': 'application/json',
-					'Authorization' : `${localStorage.getItem('jwtToken')}`//add token
+					'Authorization' : `${localStorage.getItem('jwtToken')}`
 				}
 			})
 			.then(response => response.json())
 			.then(response => {
-				console.log(response);
+				// console.log(response);
 				if(response.message === unanthMessage) {
 					this.props.history.push("/login");
-					//console.log("hello");
 				}
 			})
 			.catch( (error) => {
@@ -155,7 +149,6 @@ class Dashboard extends Component{
 		logout = () => {
 			localStorage.removeItem('jwtToken');
 			window.location.replace('/');
-			//window.location.reload();
 		}
 
 	eachBoard(board, i) {
@@ -171,9 +164,6 @@ class Dashboard extends Component{
 			/>
     )
   }
-//			{board.boardTitle}, {board.mode}
-//			<img src = "/diary_background.png" alt = "diary_background"/>
-//
 
   render(){
     return (

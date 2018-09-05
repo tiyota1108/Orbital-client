@@ -11,10 +11,6 @@ import Navigation from './Navigation'
 import Search from './Search.js'
 import './boards.css'
 
-//Boards now is the one with the original data structure and adpted
-//to multi-page. Borads 3 is the one with changed data structure
-//and adaptation to multi-page.Boards_ori is the one without any adaptation
-
 const unanthMessage = "Unauthorized user,please login.";
 class Board extends Component {
 	constructor(props) {
@@ -31,26 +27,24 @@ class Board extends Component {
 		this.eachNote = this.eachNote.bind(this)
 		this.updateTitle = this.updateTitle.bind(this)
 		this.remove = this.remove.bind(this)
-		this.logout = this.logout.bind(this)//add logout method
+		this.logout = this.logout.bind(this)
 		this.openNav = this.openNav.bind(this)
 		this.closeNav = this.closeNav.bind(this)
 		this.flipNote = this.flipNote.bind(this)
 		this.openSearch = this.openSearch.bind(this)
 		this.closeSearch = this.closeSearch.bind(this)
 	}
-	//retriving data from server before mounting borad
-	componentWillMount() {//should i use will or did, i use will here to ensure the loading state works
+
+	componentWillMount() {
 		var self = this;
-		//this.boardId = this.props.match.params.id;
 		if(this.props.location.state !== undefined){
 			this.boardId = this.props.location.state.boardId;
 		} else {
 			this.props.history.push("/login");
 			return;
 		}
-		setTimeout(() => this.setState({loading: false}), 1000);//load
-
-		fetch(`https://little-planet-1564-api.herokuapp.com/note/${this.boardId}`, { //added in the second argument to specify token
+		setTimeout(() => this.setState({loading: false}), 1000);
+		fetch(`https://little-planet-1564-api.herokuapp.com/note/${this.boardId}`, {
 			method: 'GET',
 			headers: {
 				'Accept': 'application/json',
@@ -60,10 +54,9 @@ class Board extends Component {
 		})
 				.then(response => response.json())
 				.then(response => {
-					console.log(response);
+					//console.log(response);
 					if(response.message === unanthMessage) {
 						this.props.history.push("/login");
-						//console.log("hello");
 					} else {
 					self.setState({
 						boardTitle : response.boardTitle,
@@ -77,7 +70,6 @@ class Board extends Component {
 						))
 					})
 				}
-					//self.setState({notes :response});
 				})
 				.catch( (error) => {
 				console.log(error);
@@ -95,7 +87,7 @@ class Board extends Component {
 			headers: {
 				'Accept': 'application/json',
 				'Content-Type': 'application/json',
-				'Authorization' : `${localStorage.getItem('jwtToken')}`//add token
+				'Authorization' : `${localStorage.getItem('jwtToken')}`
 			},
 			body: JSON.stringify({
 				noteTitle: note,
@@ -103,7 +95,7 @@ class Board extends Component {
 		})
 		.then(response => response.json())
 		.then(response => {
-			console.log(response);
+			//console.log(response);
 			if(response.message === unanthMessage) {
 				this.props.history.push("/login");
 			} else {
@@ -160,7 +152,7 @@ class Board extends Component {
 			headers: {
 				'Accept': 'application/json',
 				'Content-Type': 'application/json',
-				'Authorization' : `${localStorage.getItem('jwtToken')}`//add token
+				'Authorization' : `${localStorage.getItem('jwtToken')}`
 			},
 			body: JSON.stringify({
 				noteTitle: newNoteTitle,
@@ -168,10 +160,9 @@ class Board extends Component {
 		})
 		.then(response => response.json())
 		.then(response => {
-			console.log(response);
+			//console.log(response);
 			if(response.message === unanthMessage) {
 				this.props.history.push("/login");
-				//console.log("hello");
 			}
 		})
 		.catch((error) => {
@@ -189,22 +180,20 @@ class Board extends Component {
 	//------------------------------------------------------------------------
 
 	remove(id) {
-		console.log('removing item at', id)
 		var self = this;
 		fetch(`https://little-planet-1564-api.herokuapp.com/note/${id}`, {
 			method: 'DELETE',
 			headers: {
 				'Accept': 'application/json',
 				'Content-Type': 'application/json',
-				'Authorization' : `${localStorage.getItem('jwtToken')}`//add token
+				'Authorization' : `${localStorage.getItem('jwtToken')}`
 			}
 		})
 		.then(response => response.json())
 		.then(response => {
-			console.log(response);
+			//console.log(response);
 			if(response.message === unanthMessage) {
 				this.props.history.push("/login");
-				//console.log("hello");
 			}
 		})
 		.catch( (error) => {
@@ -216,13 +205,12 @@ class Board extends Component {
 	}
 
 	openSearch() {
-		console.log("opening search layer");
-		this.setState({refresh: true}); //not sure if need this
+		this.setState({refresh: true});
 		document.getElementById("mySearch").style.width = "100%";
 	}
 
 	closeSearch() {
-		this.setState({refresh: false}); //not sure if need this
+		this.setState({refresh: false});
 		document.getElementById("mySearch").style.width = "0%";
 	}
 
@@ -238,9 +226,8 @@ class Board extends Component {
 	logout = () => {
     localStorage.removeItem('jwtToken');
 		window.location.replace('/');
-    //window.location.reload();
   }
-	/*--------for flipping-------------------------------------*/
+
 	flipNote(noteId, side) {
 		var self = this;
 		fetch(`https://little-planet-1564-api.herokuapp.com/note/${noteId}`, {
@@ -248,7 +235,7 @@ class Board extends Component {
 			headers: {
 				'Accept': 'application/json',
 				'Content-Type': 'application/json',
-				'Authorization' : `${localStorage.getItem('jwtToken')}`//add token
+				'Authorization' : `${localStorage.getItem('jwtToken')}`
 			},
 			body: JSON.stringify({
 				animation: side,
@@ -256,16 +243,15 @@ class Board extends Component {
 		})
 		.then(response => response.json())
 		.then(response => {
-			console.log(response);
+			//console.log(response);
 			if(response.message === unanthMessage) {
 				this.props.history.push("/login");
-				//console.log("hello");
 			}
 		})
 		.catch((error) => {
 		console.log(error);
-		if(error.response.status === 401) {//try to access without authen
-			this.props.history.push("/login");//can directly use history?
+		if(error.response.status === 401) {
+			this.props.history.push("/login");
 		}
 	});
 	self.setState(prevState => ({
@@ -275,8 +261,6 @@ class Board extends Component {
 	}));
 	}
 
-	/*--------for flipping end-------------------------------------*/
-
 	eachNote(note, i) {
 		return (
 			<Note key={note.id}
@@ -284,7 +268,7 @@ class Board extends Component {
 					duration = {150}
 					mode = {this.state.mode}
 					animation = {note.animation}
-					cards = {note.cards} //pass down the array of cards objects retrieved from server
+					cards = {note.cards}
 				  onChange={this.updateTitle}
 				  onRemove={this.remove}
 					onFlip ={this.flipNote}>
@@ -292,13 +276,11 @@ class Board extends Component {
 		    </Note>
 		)
 	}
-	//here i added a loading state of 1.5s and wrapped the content in a div,
-	//might need to test once the database and the server is deployed.
-	render() {//temporary logout button here
+
+	render() {
 		if(this.props.location.state === undefined){
 			return (<h1>Please sign in to access the board</h1>);
-		}// just make sure that if someone types /board, they will be
-		//sent to the login page without error being thrown
+		}
 		return (
 			<div className={`board board_${this.state.mode}`}>
 			<h1><ReactMarkdown source={this.state.boardTitle} /></h1>

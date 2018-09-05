@@ -8,9 +8,8 @@ class NoteSearch extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // cards: this.props.cards || [],
       refresh : this.props.refresh,
-    }//this is super hacktive
+    }
     this.eachCard = this.eachCard.bind(this);
     this.renderDisplay = this.renderDisplay.bind(this);
   }
@@ -40,11 +39,8 @@ class NoteSearch extends Component {
       </div>
     )
   }
-  //<p>{this.props.children}</p>
-
 
   render() {
-    // console.log(`flip-container note_${this.props.mode}`);
     return (
       <div className = {`flip-container note_${this.props.mode}`}>
       <div className = {`note note_${this.props.mode}`}>

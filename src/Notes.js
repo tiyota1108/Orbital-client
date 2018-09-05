@@ -37,10 +37,6 @@ class Note extends Component {
 			itemsCount: null,
 			cards: [],
 			editingTitle:false,
-      // isDragging: false,
-      //usingPlaceHolder: false,
-      //effect: ""
-			//effect:" animated bounceInUp"
 		}
     var usingPlaceHolder = false;
     var isUpdating = false;
@@ -60,8 +56,6 @@ class Note extends Component {
     this.updateCardOrder = this.updateCardOrder.bind(this)
 	}
 
-
-	//load cards retrieved from server on each note
 	componentWillMount() {
 		this.setState({
 			cards: this.props.cards.map(card => (
@@ -85,12 +79,9 @@ class Note extends Component {
 			this.props !== nextProps|| this.state !== nextState
 		)
 	}
-	//			this.props.children !== nextProps.children || this.state !== nextState || this.props.animation !== nextProps.animation
-
 
 	editTitle(){
     if (this.props.index === "placeHolder") return;
-		console.log('edit title')
 		this.setState({
 			cards:this.state.cards,
 			editingTitle:true
@@ -108,7 +99,6 @@ class Note extends Component {
 
 	add(text) {
     if(this.usingPlaceHolder) return;
-    //if(this.state.usingPlaceHolder) return;
     if(this.isDragging) return;
 		var self = this;
     var ori = this.state.cards.length;
@@ -126,13 +116,12 @@ class Note extends Component {
 		})
 		.then(response => response.json())
 		.then(response => {
-			console.log(response);
+			// console.log(response);
 			if(response.message === unanthMessage) {
 				self.props.history.push("/login");
 			} else {
         if(self.state.cards.length !== ori) {
 				self.setState(prevState => ({
-          //usingPlaceHolder : false,
 					cards: prevState.cards.map(
 						card => (card.id !== "placeHolderCard") ? card : {...card,id: response._id}
 						)
@@ -161,7 +150,6 @@ class Note extends Component {
 	})
   self.usingPlaceHolder = true;
   self.setState(prevState =>({
-    //usingPlaceHolder: true,
     itemsCount:itemsCount + 1,
     cards:[
         ...prevState.cards,
@@ -192,7 +180,7 @@ class Note extends Component {
 		})
 		.then(response => response.json())
 		.then(response => {
-			console.log(response);
+			// console.log(response);
 			if(response.message === unanthMessage) {
 				this.props.history.push("/login");
 			}
@@ -209,7 +197,6 @@ class Note extends Component {
 
   updateCardOrder(newCards, i) {
     if(this.isUpdating){
-      console.log("preventing second update");
       return;
     }
     this.isUpdating = true;
@@ -230,10 +217,9 @@ class Note extends Component {
 		})
 		.then(response => response.json())
 		.then(response => {
-			console.log(response);
+			// console.log(response);
       self.isDragging = false;
       self.isUpdating = false;
-      console.log("inside card order is dragging is " + self.isDragging);
 			if(response.message === unanthMessage) {
 				self.props.history.push("/login");
 			}
@@ -250,7 +236,6 @@ class Note extends Component {
 
 	removeCard(id) {
     if(this.isDragging) return;
-		console.log('removing item at', id)
 		var self = this;
     fetch(`https://little-planet-1564-api.herokuapp.com/card/${this.props.index}/${id}`, {
 		// fetch(`http://localhost:3000/card/${this.props.index}/${id}`, {
@@ -263,7 +248,7 @@ class Note extends Component {
 		})
 		.then(response => response.json())
 		.then(response => {
-			console.log(response);
+			// console.log(response);
       if(response.message === unanthMessage) {
         this.props.history.push("/login");
       }
@@ -302,13 +287,9 @@ class Note extends Component {
 		if (isPressed) {
       if(this.usingPlaceHolder) return;
       this.isDragging = true;
-			console.log("pageY is " + pageY);
-			console.log("topDeltaY " + topDeltaY);
 			const mouseY = pageY - topDeltaY;
-			console.log("mouseY is " + mouseY);
 			const currentRow = clamp(clamp(Math.round(mouseY / 70), -itemsCount+1,itemsCount-1) +
                                       cards.indexOf(originalPosOfLastPressed),0,itemsCount-1);
-			console.log("currentRow is " + currentRow);
 			var newOrder = cards;
 			if (currentRow !== cards.indexOf(originalPosOfLastPressed)){
 				newOrder = reinsert(cards, cards.indexOf(originalPosOfLastPressed), currentRow);
@@ -376,7 +357,6 @@ class Note extends Component {
 	}
 
 	renderForm(side) {
-		console.log('render Form')
 		return (
 			<div>
 				<form onSubmit={this.saveTitle}>

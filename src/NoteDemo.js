@@ -173,7 +173,6 @@ renderForm(side) {
     )
   }
   renderDisplay() {
-    console.log("rendering display");
     return (
       <div style = {{textAlign:'center'}}>
         <p onClick={this.editTitle}>
@@ -204,7 +203,6 @@ renderForm(side) {
 
 
   render() {
-    console.log("this state is" + this.props.animation );
     return (
       <div className = {`flip-container note_${this.props.mode}`}>
       <div className = {`note_${this.props.mode}`}>

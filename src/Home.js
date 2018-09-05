@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import './home.css';
 import Demo from './Demo';
 
-//style={{ textDecoration: 'none' }}
-// "*Daylight Mode* ![](https://i.imgur.com/COGovJQ.png)"
 
 const Home = (props) => {
   return(

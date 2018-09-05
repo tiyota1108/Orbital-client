@@ -30,7 +30,6 @@ class Login extends Component {
     const { username, password } = this.state;
     if (this.state.username == ""){
       this.setState({loading:false})
-      console.log("adsadadada")
     }
     fetch("https://little-planet-1564-api.herokuapp.com/auth/login", {
       method: 'POST',
@@ -39,34 +38,26 @@ class Login extends Component {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        email: username,//i just use the username to fake the unique email first
+        email: username,
         password: password
       })
     })
-    // .then(response => {
-    //   if(response.status === 401) {
-    //     this.setState({ message: 'Login failed. Username or password not match' });
-    //   }
-    // })
     .then(response => response.json())
     .then(response => {
-      console.log(response);
+      // console.log(response);
       this.setState({loading:false});
       if(response.message !== undefined) {
-            
+
             this.setState({ message: 'Login failed. Username or password not match',
             loading:false });
       } else {
       localStorage.setItem('jwtToken', 'JWT ' + response.token);
       this.setState({ message: 'Welcome!'});
-      this.props.history.push(`/dashboard/${response.id}`);//get userId from response and pass to url
+      this.props.history.push(`/dashboard/${response.id}`);
     }
     })
     .catch((error) => {
         console.log(error);
-        // if(error.response.status === 401) {
-        //     this.setState({ message: 'Login failed. Username or password not match' });
-        //   }
       });
   }
 
@@ -90,11 +81,11 @@ class Login extends Component {
           <input type="email" className="form-control" placeholder="Email address" name="username" value={username} onChange={this.onChange} required/>
           <label htmlFor="inputPassword" className="sr-only"></label>
           <input type="password" className="form-control" placeholder="Password" name="password" value={password} onChange={this.onChange} required/>
-          {this.state.loading ? 
+          {this.state.loading ?
           (<button className="anim">
           <div class="loader">
             <div class="circle"></div>
-           </div></button>): 
+           </div></button>):
           <button className="btn"  type="submit">Login</button>}
         </form>
         <p class="hint">

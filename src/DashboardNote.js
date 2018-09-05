@@ -52,40 +52,19 @@ class DashboardNote extends Component {
 		})
 	}
 
-  // renderDisplay() {
-  //   return (
-  //     <div className = "dashboard_note">
-  //     <Link to={{
-	// 			pathname : `/board/${this.props.boardId}`,
-	// 			state : {
-	// 			userId : this.props.userId,
-	// 			boardId : this.props.boardId
-	// 		}
-	// 	}}>
-	// 	<img src = {`/${this.props.mode}_background.png`}
-	// 	alt = {`/${this.props.mode}_background`}
-	// className = "note-image"/>
-  //   </Link>
-	// 	<div className = "container">
-	// 		<h3>{this.props.boardTitle}</h3>
-	// 		</div>
-	// 		</div>
-  //   )
-  // }
   renderDisplay() {
     console.log("we are render dislpay");
     return (
 
       <div className = "dashboard_note">
       <Link to={{
-        // pathname : `/board/${this.props.boardId}`,
         pathname : `/board`,
         state : {
           boardId: this.props.boardId,
         userId : this.props.userId,
         boardId : this.props.boardId
       }
-    }} onClick = {console.log("clicking")}className = "note-link">
+    }} className = "note-link">
     <img src = {`/${this.props.mode}_background.png`}
     alt = {`/${this.props.mode}_background`}
     className = "note-image" />
@@ -104,10 +83,8 @@ class DashboardNote extends Component {
 
     )
   }
-//	className = "note-image"
-  renderForm() {
-    console.log("we are render form")
 
+  renderForm() {
     return (
       <div className = "dashboard_note">
         <img src = {`/${this.props.mode}_background.png`}
