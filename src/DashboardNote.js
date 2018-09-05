@@ -125,7 +125,11 @@ class DashboardNote extends Component {
   }
 
   render(){
-		return this.state.editing ? this.renderForm():this.renderDisplay()
+		return (
+      <div className = "animated bounceInUp">
+      {this.state.editing ? this.renderForm():this.renderDisplay()}
+      </div>
+    )
 	}
 }
 
