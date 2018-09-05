@@ -113,17 +113,16 @@ class Dashboard extends Component{
 				console.log(response);
 				if(response.message === unanthMessage) {
 					this.props.history.push("/login");
-				} else {
-					self.setState(prevState => ({
-						boards: prevState.boards.map(
-							board => (board.boardId !== boardId) ? board : {...board,boardTitle: newText}
-							)
-					}));
-			}
+				}
 			})
 			.catch( (error) => {
 			console.log(error);
 		})
+		self.setState(prevState => ({
+			boards: prevState.boards.map(
+				board => (board.boardId !== boardId) ? board : {...board,boardTitle: newText}
+				)
+		}));
 		}
 
 		remove(id) {
@@ -142,15 +141,14 @@ class Dashboard extends Component{
 				if(response.message === unanthMessage) {
 					this.props.history.push("/login");
 					//console.log("hello");
-				} else {
-				self.setState(prevState => ({
-					boards: prevState.boards.filter(board => board.boardId !== id)
-				}));
-			}
+				}
 			})
 			.catch( (error) => {
 			console.log(error);
 		})
+		self.setState(prevState => ({
+			boards: prevState.boards.filter(board => board.boardId !== id)
+		}));
 		}
 
 
