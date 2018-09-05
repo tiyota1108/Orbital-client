@@ -42,7 +42,7 @@ const Home = (props) => {
       <Demo text = "Diary Mode" mode = "diary"></Demo>
     </div>
     <div className = "quote-wrapper">
-      <p className = "diary-quote">"What makes the desert beautiful',said the little prince, 'is that somewhere it hides a well..."</p>
+      <p className = "diary-quote">"What makes the desert beautiful", said the little prince,"is that somewhere it hides a well..."</p>
     </div>
   </div>
 
