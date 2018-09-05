@@ -40,6 +40,16 @@ body {
     text-align:center;
 
 }
+
+.Dash h1 {
+  font-family: "Didot","Apple Chancery",sans-serif;
+  font-size: 40px;
+  color: rgb(67, 36, 17);
+  padding-top: 3%;
+  margin-bottom: 3.5%
+
+}
+
 .DashboardP {
   font-family: "Didot","Apple Chancery",sans-serif;
   font-size: 15px;
