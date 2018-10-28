@@ -8,7 +8,7 @@ import './boards.css'
 import './search.css'
 
 const unanthMessage = "Unauthorized user,please login.";
-export const client = algoliasearch('D77JU4R9TE', '21aa35e2685f87d710c4248b7f4137d9');
+export const client = algoliasearch('99OSTG262A', '9038b045b21d46e227e3b41c6432fb61');
 export const index = client.initIndex('prod_NOTES');
 
 
