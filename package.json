@@ -2,6 +2,9 @@
   "name": "bulletin-board",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "8.11.1"
+  },
   "devDependencies": {
     "react-scripts": "^1.1.4",
     "babel-cli": "^6.26.0",
